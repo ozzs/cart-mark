@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+.block {
+  background-color: #e0e0e0;
+  padding: 0.5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 1%;
+  border-radius: 0.5rem;
+}
+
+.userInput {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin-left: 1%;
+}
+
+button {
+  font-weight: bold;
+}

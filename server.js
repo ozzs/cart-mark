@@ -1,7 +1,11 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const bodyParser = require('body-parser')
+const db = require('./database');
 const port = 5000
+
+app.use(bodyParser.json());
 
 app.use(cors({
   origin: '*',
@@ -13,7 +17,15 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  res.send('Got a POST request')
+  console.log(req.body);
+})
+
+db.all("SELECT * FROM SHOPLIST", [], (err, rows) => {
+  if(err) return console.error(err.message);
+  
+  rows.forEach(row => {
+    console.log(row);
+  })
 })
 
 app.listen(port, () => {

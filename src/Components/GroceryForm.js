@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./GroceryForm.css";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 
 function GroceryForm() {
-    //let navigate = useNavigate();
+    let navigate = useNavigate();
 
     const check = "checkStr";
 
@@ -61,10 +61,10 @@ function GroceryForm() {
     }
 
     const handleShopping = () => {
-        axios.post('http://localhost:5000/', productList)
-        .then(response => {console.log(response)})
-        .catch(error => {console.log(error, error.response)});
-        //navigate("/shoppinglist", { state: { shopList: productList } });
+        // axios.post('http://localhost:5000/', productList)
+        // .then(response => {console.log(response)})
+        // .catch(error => {console.log(error, error.response)});
+        navigate("/shoppinglist", { state: { shopList: productList } });
     }
 
     return (

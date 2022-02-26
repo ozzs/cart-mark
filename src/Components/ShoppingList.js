@@ -1,5 +1,6 @@
 
 import React from 'react'
+import axios from 'axios';
 import { useLocation, useNavigate } from "react-router-dom";
 
 function ShoppingList(props) {
@@ -7,7 +8,10 @@ function ShoppingList(props) {
     const { state } = useLocation();
 
     const handleEditing = () => {
-        navigate("/");
+        axios.post('http://localhost:5000/', state.shopList)
+        .then(response => {console.log(response)})
+        .catch(error => {console.log(error, error.response)});
+        //navigate("/");
     }
 
     return (

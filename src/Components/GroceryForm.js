@@ -8,8 +8,6 @@ import EditProdRow from "./EditProdRow";
 function GroceryForm() {
     let navigate = useNavigate();
 
-    const check = "checkStr";
-
     const[inputs, setInputs] = useState({
         product: '',
         comment: ''

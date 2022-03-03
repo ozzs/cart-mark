@@ -42,6 +42,12 @@ input[type="text"] {
     padding-left: 7px;
 }
 
+.departments {
+    width: 50%;
+    text-align: left;
+    display: inline-block;
+}
+
 .input-comment {
     width: 50%;
     height: 25px;

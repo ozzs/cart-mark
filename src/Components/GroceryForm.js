@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import Select from 'react-select';
 import axios from 'axios';
 import "./GroceryForm.css";
 import { useNavigate } from "react-router-dom";
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
+
+const options = [
+    { value: 'vegetables', label: 'Vegetables'},
+    { value: 'fruits', label: 'Fruits'},
+    { value: 'canned', label: 'Canned Food'}
+]
 
 function GroceryForm() {
     let navigate = useNavigate();
@@ -12,6 +19,8 @@ function GroceryForm() {
         product: '',
         comment: ''
     })
+
+    const [selectedDepartment, setSelectedDepartment] = useState(null);
 
     const[productList, setProductList] = useState([]);
 
@@ -72,19 +81,24 @@ function GroceryForm() {
             <div className="explanation"> Add a new item to the shopping list </div>
             <form   className="grocery-form"
                     onSubmit={handleSubmit}>
-            <input  type="text" 
-                    className="input-product"
-                    placeholder="Enter item..." 
-                    name="product" 
-                    value={inputs.product}
-                    onChange={handleChange}/> <br />
-            <input  type="text"
-                    className="input-comment"
-                    placeholder="Enter comment..." 
-                    name="comment" 
-                    value={inputs.comment}
-                    onChange={handleChange}/> <br />
-            <button className="add-item-button"> Add Item </button>
+                <input  type="text" 
+                        className="input-product"
+                        placeholder="Enter item..." 
+                        name="product" 
+                        value={inputs.product}
+                        onChange={handleChange}/> <br />
+                <Select className="departments"
+                        defaultValue={selectedDepartment}
+                        placeholder="Select department..."
+                        onChange={setSelectedDepartment}
+                        options={options} />
+                <input  type="text"
+                        className="input-comment"
+                        placeholder="Enter comment..." 
+                        name="comment" 
+                        value={inputs.comment}
+                        onChange={handleChange}/> <br />
+                <button className="add-item-button"> Add Item </button>
             </form>
         </div>
         <div className="block">

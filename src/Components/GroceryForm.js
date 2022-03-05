@@ -10,6 +10,8 @@ let options = [];
 
 function GroceryForm() {
 
+    const [isLoading, setLoading] = useState(true);
+
     useEffect(() => {
         axios.get('http://localhost:5000/check')
         .then((response => {
@@ -26,42 +28,57 @@ function GroceryForm() {
 
     const[inputs, setInputs] = useState({
         product: '',
-        department: '',
         comment: ''
     })
 
-    const [isLoading, setLoading] = useState(true);
+    const[editInputs, setEditInputs] = useState({
+        product: '',
+        comment: ''
+    })
 
-    const [selectedDepartment, setSelectedDepartment] = useState(null);
+    const[selectedProduct, setSelectedProduct] = useState(null);
 
     const[productList, setProductList] = useState([]);
 
     const[editProdId, setEditProdId] = useState(null);
     
-    const addProduct = (inputs, selectedDepartment) => {
+    const addProduct = (inputs) => {
 
-        if(!inputs.product)
+        if(!selectedProduct)
             return;
         
         const inputsDetails = {
             id: Math.floor(Math.random() * 10000),
-            product: inputs.product,
-            department: selectedDepartment,
+            product: selectedProduct.label,
             comment: inputs.comment
         }
 
         setProductList([...productList, inputsDetails]);
-        console.log(...productList, inputsDetails);
+        console.log("productlist:", ...productList, inputsDetails);
     }
 
-    const removeProduct = (key) => {
-        const removeArr = [...productList].filter(product => product.product !== key);
+    const editProduct = (e) => {
+
+        const {name, value} = e.target;
+        setEditInputs({...editInputs, [name]: value});
+        console.log({...editInputs, [name]: value});
+    }
+
+    const removeProduct = (id) => {
+        const removeArr = [...productList].filter(product => product.id !== id);
         setProductList(removeArr);
     }
 
     const handleEditClick = (e, product) => {
         e.preventDefault();
         setEditProdId(product.id);
+
+        const prodValues = {
+            product: product.product,
+            comment: product.comment
+        }
+
+        setEditInputs(prodValues);
     }
 
     const handleChange = (e) => {
@@ -74,11 +91,28 @@ function GroceryForm() {
 
         const {name, value} = e.target;
         setInputs({...inputs, [name]: value})
-        addProduct(inputs, selectedDepartment);
-        setSelectedDepartment(null);
+        addProduct(inputs);
+        setSelectedProduct(null);
         setInputs({product: '', comment: ''});
         
-        console.log('product=' + inputs.product, 'comment=' + inputs.comment);
+        console.log('product=' + selectedProduct, 'comment=' + inputs.comment);
+    }
+
+    const handleEditSubmit = (e) => {
+        e.preventDefault();
+
+        const editInputsDetails = {
+            id: editProdId,
+            product: editInputs.product,
+            comment: editInputs.comment
+        }
+        
+        const newInputs = [...productList];
+        const index = productList.findIndex((product) => product.id === editProdId);
+        newInputs[index] = editInputsDetails;
+
+        setProductList(newInputs);
+        setEditProdId(null);
     }
 
     const handleShopping = () => {
@@ -99,18 +133,12 @@ function GroceryForm() {
             <div className="explanation"> Add a new item to the shopping list </div>
             <form   className="grocery-form"
                     onSubmit={handleSubmit}>
-                <input  type="text" 
-                        className="input-product"
-                        placeholder="Enter item..." 
-                        name="product" 
-                        value={inputs.product}
-                        onChange={handleChange}/> <br />
-                <Select className="departments"
-                        value={selectedDepartment}
-                        placeholder="Select department..."
-                        onChange={setSelectedDepartment}
+                <Select className="products"
+                        value={selectedProduct}
+                        placeholder="Enter item..."
+                        onChange={setSelectedProduct}
                         options={options} 
-                        name="department"/>
+                        name="product"/>
                 <input  type="text"
                         className="input-comment"
                         placeholder="Enter comment..." 
@@ -124,7 +152,12 @@ function GroceryForm() {
             <h3>Your shopping list</h3>
             {productList.map((product, index)=> 
                 ( editProdId === product.id ? 
-                <EditProdRow key = {index} /> : 
+                <EditProdRow    product = {product}    
+                                key = {index}
+                                editInputs={editInputs}
+                                editProduct={editProduct}
+                                handleEditSubmit={handleEditSubmit} 
+                                removeProduct = {removeProduct} /> : 
                 <ReadProdRow    product = {product}
                                 key = {index}
                                 removeProduct = {removeProduct} 

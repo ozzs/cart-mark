@@ -8,21 +8,18 @@ import EditProdRow from "./EditProdRow";
 
 let options = [];
 
-function getDepartments() {
-    return axios.get('http://localhost:5000/check');
-}
-
 function GroceryForm() {
 
     useEffect(() => {
-        getDepartments().then(response => {
+        axios.get('http://localhost:5000/check')
+        .then((response => {
             Object.values(response.data).map((value) => (
                 options = [...options, {value: value.name,
                                         label: value.name}]
             ))
             console.log("options: ", options);
             setLoading(false);
-        });
+        }));
     }, []);
 
     let navigate = useNavigate();

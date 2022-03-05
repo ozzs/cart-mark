@@ -6,17 +6,36 @@ import { useNavigate } from "react-router-dom";
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 
-const options = [
-    { value: 'vegetables', label: 'Vegetables'},
-    { value: 'fruits', label: 'Fruits'},
-    { value: 'canned', label: 'Canned Food'}
-]
+let options = [];
+
+async function getDepartments() {
+    const data = await axios.get('http://localhost:5000/check')
+        .then((response) => {
+            Object.values(response.data).map((value) => (
+                options = [...options, {value: value.department, 
+                                        label: value.department}]
+            ));
+            console.log('the options:', options)
+            console.log('the response:', response.data);
+        });
+    return data;
+}
+
+getDepartments('http://localhost:5000/check');
+
+// const options1 = [
+//     { value: 'Vegetables', label: 'Vegetables'},
+//     { value: 'Fruits', label: 'Fruits'},
+//     { value: 'Canned', label: 'Canned Food'}
+// ]
 
 function GroceryForm() {
+
     let navigate = useNavigate();
 
     const[inputs, setInputs] = useState({
         product: '',
+        department: '',
         comment: ''
     })
 
@@ -26,7 +45,7 @@ function GroceryForm() {
 
     const[editProdId, setEditProdId] = useState(null);
     
-    const addProduct = (inputs) => {
+    const addProduct = (inputs, selectedDepartment) => {
 
         if(!inputs.product)
             return;
@@ -34,6 +53,7 @@ function GroceryForm() {
         const inputsDetails = {
             id: Math.floor(Math.random() * 10000),
             product: inputs.product,
+            department: selectedDepartment,
             comment: inputs.comment
         }
 
@@ -61,7 +81,8 @@ function GroceryForm() {
 
         const {name, value} = e.target;
         setInputs({...inputs, [name]: value})
-        addProduct(inputs);
+        addProduct(inputs, selectedDepartment);
+        setSelectedDepartment(null);
         setInputs({product: '', comment: ''});
         
         console.log('product=' + inputs.product, 'comment=' + inputs.comment);
@@ -88,10 +109,11 @@ function GroceryForm() {
                         value={inputs.product}
                         onChange={handleChange}/> <br />
                 <Select className="departments"
-                        defaultValue={selectedDepartment}
+                        value={selectedDepartment}
                         placeholder="Select department..."
                         onChange={setSelectedDepartment}
-                        options={options} />
+                        options={options} 
+                        name="department"/>
                 <input  type="text"
                         className="input-comment"
                         placeholder="Enter comment..." 

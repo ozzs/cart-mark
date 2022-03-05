@@ -7,6 +7,7 @@ function ReadProdRow( {product, removeProduct, index, handleEditClick} ) {
   return (  
     <div className="product-row" key = {index}> 
         <div className="output-product"> {product.product} </div>
+        <div className='output-department'> {product.department.label} </div>
         <div className="output-comment"> {product.comment} </div>
         <div className="icons">
         <FiEdit className="edit-button" 

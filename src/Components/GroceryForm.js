@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from 'react-select';
 import axios from 'axios';
 import "./GroceryForm.css";
@@ -8,28 +8,22 @@ import EditProdRow from "./EditProdRow";
 
 let options = [];
 
-async function getDepartments() {
-    const data = await axios.get('http://localhost:5000/check')
-        .then((response) => {
-            Object.values(response.data).map((value) => (
-                options = [...options, {value: value.department, 
-                                        label: value.department}]
-            ));
-            console.log('the options:', options)
-            console.log('the response:', response.data);
-        });
-    return data;
+function getDepartments() {
+    return axios.get('http://localhost:5000/check');
 }
 
-getDepartments('http://localhost:5000/check');
-
-// const options1 = [
-//     { value: 'Vegetables', label: 'Vegetables'},
-//     { value: 'Fruits', label: 'Fruits'},
-//     { value: 'Canned', label: 'Canned Food'}
-// ]
-
 function GroceryForm() {
+
+    useEffect(() => {
+        getDepartments().then(response => {
+            Object.values(response.data).map((value) => (
+                options = [...options, {value: value.name,
+                                        label: value.name}]
+            ))
+            console.log("options: ", options);
+            setLoading(false);
+        });
+    }, []);
 
     let navigate = useNavigate();
 
@@ -38,6 +32,8 @@ function GroceryForm() {
         department: '',
         comment: ''
     })
+
+    const [isLoading, setLoading] = useState(true);
 
     const [selectedDepartment, setSelectedDepartment] = useState(null);
 
@@ -93,6 +89,10 @@ function GroceryForm() {
         // .then(response => {console.log(response)})
         // .catch(error => {console.log(error, error.response)});
         navigate("/shoppinglist", { state: { shopList: productList } });
+    }
+
+    if (isLoading) {
+        return <h2 className="loading-screen">Loading...</h2>;
     }
 
     return (

@@ -11,7 +11,7 @@ function ShoppingList(props) {
         axios.post('http://localhost:5000/', state.shopList)
         .then(response => {console.log(response)})
         .catch(error => {console.log(error, error.response)});
-        //navigate("/");
+        navigate("/");
     }
 
     return (

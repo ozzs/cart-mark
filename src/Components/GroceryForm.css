@@ -92,10 +92,28 @@ button {
 
 .output-product {
     position: relative;
-    width: 35%;
+    width: 30%;
     text-align: left;
     margin-right: auto;
     font-size: 18px;
+    padding: 1%;
+}
+
+.output-department {
+    position: relative;
+    width: 20%;
+    text-align: left;
+    margin-right: auto;
+    font-size: 15px;
+    padding: 1%;
+}
+
+.output-units {
+    position: relative;
+    width: 20%;
+    text-align: left;
+    margin-right: auto;
+    font-size: 15px;
     padding: 1%;
 }
 
@@ -104,7 +122,7 @@ button {
     width: 10%;
     text-align: left;
     color: rgb(252, 61, 61);
-    font-size: 14px;
+    font-size: 12px;
     margin-right: auto;
     padding: 1%;
 }

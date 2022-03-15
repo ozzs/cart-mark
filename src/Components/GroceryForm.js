@@ -7,20 +7,24 @@ import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 
 let options = [];
+let allProducts = [];
 
 function GroceryForm() {
 
-    const [isLoading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         axios.get('http://localhost:5000/check')
         .then((response => {
             Object.values(response.data).map((value) => (
-                options = [...options, {value: value.name,
-                                        label: value.name}]
+                allProducts = [...allProducts, value]))
+            //console.log("allProducts: " + allProducts[0].units);
+            allProducts.map((product) => (
+                options = [...options, {value: product.name,
+                                        label: product.name}]
             ))
-            console.log("options: ", options);
-            setLoading(false);
+            //console.log("options: ", options);
+            setIsLoading(false);
         }));
     }, []);
 
@@ -152,16 +156,18 @@ function GroceryForm() {
             <h3>Your shopping list</h3>
             {productList.map((product, index)=> 
                 ( editProdId === product.id ? 
-                <EditProdRow    product = {product}    
+                <EditProdRow    product = {product}
+                                allProducts = {allProducts}    
                                 key = {index}
                                 editInputs={editInputs}
                                 editProduct={editProduct}
                                 handleEditSubmit={handleEditSubmit} 
                                 removeProduct = {removeProduct} /> : 
                 <ReadProdRow    product = {product}
+                                allProducts = {allProducts}
                                 key = {index}
                                 removeProduct = {removeProduct} 
-                                handleEditClick = {handleEditClick}/>
+                                handleEditClick = {handleEditClick} />
                 )
             )}
         </div>

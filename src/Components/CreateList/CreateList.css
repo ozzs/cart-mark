@@ -30,10 +30,6 @@ h1, h2, h3{
     margin-bottom: 5px;
 }
 
-input[type="text"] {
-    margin: 5px;
-}
-
 .input-product {
     width: 50%;
     height: 40px;
@@ -46,6 +42,29 @@ input[type="text"] {
     width: 50%;
     text-align: left;
     display: inline-block;
+    margin: 1%;
+}
+
+.amount-elements {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: auto;
+}
+
+.input-amount {
+    width: 50%;
+    height: 25px;
+    box-sizing: border-box;
+    padding-left: 7px;
+}
+
+.show-units {
+    font-size: 70%;
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+    margin-left: 2%;
 }
 
 .input-comment {
@@ -53,6 +72,7 @@ input[type="text"] {
     height: 25px;
     box-sizing: border-box;
     padding-left: 7px;
+    margin: 1%;
 }
   
 button {
@@ -108,12 +128,12 @@ button {
     padding: 1%;
 }
 
-.output-units {
+.output-amount {
     position: relative;
     width: 20%;
     text-align: left;
     margin-right: auto;
-    font-size: 15px;
+    font-size: 14px;
     padding: 1%;
 }
 

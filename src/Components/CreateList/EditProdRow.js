@@ -13,6 +13,13 @@ function EditProdRow({product, allProducts, index, editInputs, editProduct, hand
             { filteredProd.department } 
             </div> } ) }
         
+        <input  type="text"
+                className="edit-amount"
+                placeholder="Edit amount..."
+                name="amount" 
+                value={editInputs.amount}
+                onChange={editProduct} />
+
         {allProducts.filter(prod => prod.name === product.product)
           .map((filteredProd, index) => {
             return <div className="output-units" key={index}> 

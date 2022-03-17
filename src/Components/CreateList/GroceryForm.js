@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select';
 import axios from 'axios';
-import "./GroceryForm.css";
+import './GroceryForm'
 import { useNavigate } from "react-router-dom";
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
@@ -32,11 +32,13 @@ function GroceryForm() {
 
     const[inputs, setInputs] = useState({
         product: '',
+        amount: '',
         comment: ''
     })
 
     const[editInputs, setEditInputs] = useState({
         product: '',
+        amount: '',
         comment: ''
     })
 
@@ -48,12 +50,13 @@ function GroceryForm() {
     
     const addProduct = (inputs) => {
 
-        if(!selectedProduct)
+        if(!selectedProduct || !inputs.amount)
             return;
         
         const inputsDetails = {
             id: Math.floor(Math.random() * 10000),
             product: selectedProduct.label,
+            amount: inputs.amount,
             comment: inputs.comment
         }
 
@@ -79,6 +82,7 @@ function GroceryForm() {
 
         const prodValues = {
             product: product.product,
+            amount: product.amount,
             comment: product.comment
         }
 
@@ -97,9 +101,9 @@ function GroceryForm() {
         setInputs({...inputs, [name]: value})
         addProduct(inputs);
         setSelectedProduct(null);
-        setInputs({product: '', comment: ''});
+        setInputs({product: '', amount: '', comment: ''});
         
-        console.log('product=' + selectedProduct, 'comment=' + inputs.comment);
+        console.log('product=' + selectedProduct, 'amount=' + inputs.amount, 'comment=' + inputs.comment);
     }
 
     const handleEditSubmit = (e) => {
@@ -108,6 +112,7 @@ function GroceryForm() {
         const editInputsDetails = {
             id: editProdId,
             product: editInputs.product,
+            amount: editInputs.amount,
             comment: editInputs.comment
         }
         
@@ -137,18 +142,37 @@ function GroceryForm() {
             <div className="explanation"> Add a new item to the shopping list </div>
             <form   className="grocery-form"
                     onSubmit={handleSubmit}>
+
                 <Select className="products"
                         value={selectedProduct}
                         placeholder="Enter item..."
                         onChange={setSelectedProduct}
                         options={options} 
-                        name="product"/>
+                        name="product"/> <br />
+
+                <div className="amount-elements">
+                <input  type="text"
+                        className="input-amount"
+                        placeholder="Enter amount..."
+                        name="amount"
+                        value={inputs.amount}
+                        onChange={handleChange} /> 
+
+                {selectedProduct ?
+                    allProducts.filter(prod => prod.name === selectedProduct.label)
+                    .map((filteredProd, index) => {
+                        return  <div className="show-units" key={index}> 
+                                ({ filteredProd.units }) </div> } ) : 
+                                <div className="show-units"> (Units) </div>} 
+                </div>
+
                 <input  type="text"
                         className="input-comment"
                         placeholder="Enter comment..." 
                         name="comment" 
                         value={inputs.comment}
                         onChange={handleChange}/> <br />
+                        
                 <button className="add-item-button"> Add Item </button>
             </form>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./GroceryForm.css";
+import './CreateList.css';
 import { AiFillDelete } from 'react-icons/ai'
 import { FiEdit } from 'react-icons/fi'
 
@@ -16,8 +16,8 @@ function ReadProdRow( {product, allProducts, removeProduct, index, handleEditCli
 
         {allProducts.filter(prod => prod.name === product.product)
           .map((filteredProd, index) => {
-            return <div className="output-units" key={index}> 
-            { filteredProd.units } 
+            return <div className="output-amount" key={index}> 
+            {product.amount} { filteredProd.units } 
             </div> } ) }
 
         <div className="output-comment"> {product.comment} </div>

@@ -6,7 +6,7 @@ function Navbar() {
     return (
         <nav>
             <NavLink to="/" className='link' activeclassname='active'> Home </NavLink>
-            <NavLink to="/" className='link' activeclassname='active'> Add Item </NavLink>
+            <NavLink to="/additem" className='link' activeclassname='active'> Add Item </NavLink>
             <NavLink to="/" className='link' activeclassname='active'> Create List </NavLink>
             <NavLink to="/shoppinglist" className='link' activeclassname='active'> Go Shopping! </NavLink>
         </nav>

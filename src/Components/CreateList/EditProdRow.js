@@ -34,7 +34,7 @@ function EditProdRow({product, allProducts, index, editInputs, editProduct, hand
                 onChange={editProduct} />
                 
         <div className="icons">
-        <GiSaveArrow  className="save-button" 
+        <GiSaveArrow  className="edit-button" 
                       onClick={(e) => handleEditSubmit(e)}/>
         <AiFillDelete className="delete-button" 
                       onClick={() => removeProduct(product.id)}/>

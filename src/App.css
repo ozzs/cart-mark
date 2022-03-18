@@ -23,15 +23,6 @@ h3 {
   border-radius: 0.5rem;
 }
 
-.userInput {
-  display: flex;
-  justify-content: center;
-}
-
-input {
-  margin-left: 1%;
-}
-
 button {
   font-weight: bold;
 }

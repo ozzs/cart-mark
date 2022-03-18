@@ -6,27 +6,22 @@ import { useNavigate } from "react-router-dom";
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 
-let options = [];
-let allProducts = [];
-
 function GroceryForm() {
 
+    const [options, setOptions] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const fetchAllProducts = async() => {
+        const response = await axios.get('http://localhost:5000/check');
+        setAllProducts(response.data);
+        setOptions(response.data.map(product => ({value: product.name, label: product.name})))
+        setIsLoading(false);
+    }
+
     useEffect(() => {
-        axios.get('http://localhost:5000/check')
-        .then((response => {
-            Object.values(response.data).map((value) => (
-                allProducts = [...allProducts, value]))
-            //console.log("allProducts: " + allProducts[0].units);
-            allProducts.map((product) => (
-                options = [...options, {value: product.name,
-                                        label: product.name}]
-            ))
-            //console.log("options: ", options);
-            setIsLoading(false);
-        }));
-    }, []);
+        fetchAllProducts();
+    }, []); 
 
     let navigate = useNavigate();
 
@@ -60,7 +55,7 @@ function GroceryForm() {
             comment: inputs.comment
         }
 
-        setProductList([...productList, inputsDetails]);
+        setProductList([inputsDetails, ...productList]);
         console.log("productlist:", ...productList, inputsDetails);
     }
 

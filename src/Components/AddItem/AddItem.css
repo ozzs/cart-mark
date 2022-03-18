@@ -1,0 +1,25 @@
+.input-product {
+    width: 50%;
+    height: 40px;
+    font-size: large;
+    box-sizing: border-box;
+    padding-left: 7px;
+}
+
+.departments {
+    width: 50%;
+    text-align: left;
+    display: inline-block;
+    margin: 1%;
+}
+
+.packaging {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: auto;
+}
+
+.pack-title {
+    font-weight: bold;
+}

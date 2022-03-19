@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Select from 'react-select';
 import axios from 'axios';
+import { BsCheck2Circle } from 'react-icons/bs'
 import './AddItem.css'
 
 function AddItem() {
@@ -35,7 +36,8 @@ function AddItem() {
     
     const [selectedDepartment, setSelectedDepartment] = useState(null);
     const [selectedPackeging, setSelectedPackaging] = useState(null);
-    
+    const [inserted, setInserted] = useState(false);
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setInputs({...inputs, [name]: value});
@@ -44,6 +46,9 @@ function AddItem() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if(!selectedDepartment || !selectedPackeging || !inputs.product)
+            return;
 
         const {name, value} = e.target;
         setInputs({...inputs, [name]: value})
@@ -57,35 +62,27 @@ function AddItem() {
         setSelectedDepartment(null);
         setSelectedPackaging(null);
         setInputs({product: '', department: '', packeging: ''});
-        
-        console.log('product=' + inputsDetails.product, 'department=' + inputsDetails.department, 
-                    'packeging=' + inputsDetails.packeging);
 
         axios.post('http://localhost:5000/additem', inputsDetails)
-        .then(response => {console.log(response)})
+        .then(response => {
+            console.log(response.status);
+            if (response.status === 200) 
+                setInserted(true) })
         .catch(error => {console.log(error, error.response)});
     }
 
-    // const addItem = (inputs) => {
-        
-    //     if(!selectedDepartment || !selectedPackeging)
-    //         return;
-        
-    //     const inputsDetails = {
-    //         product: inputs.product,
-    //         department: selectedDepartment.label,
-    //         comment: selectedPackeging.label
-    //     }
-
-    //     axios.post('http://localhost:5000/check', inputsDetails)
-    //     .then(response => {console.log(response)})
-    //     .catch(error => {console.log(error, error.response)});
-
-    //     setProductList([inputsDetails, ...productList]);
-    //     console.log("productlist:", ...productList, inputsDetails);
-    // }
+    const alert = () => {
+        return <div className="alert">
+            <BsCheck2Circle className="check-icon" />
+            <div className="success-alert">
+                <span className="success-alert-title"> Success! </span> <br />
+                Item added successfully...
+            </div>
+        </div>
+    }
 
     return (
+        <>
         <div className="block"> 
             <h2>Add Item</h2>
             <div className="explanation"> Add a new item to the database </div>
@@ -117,6 +114,9 @@ function AddItem() {
                 <button className="add-item-button"> Add Item </button>
             </form>
         </div>
+
+        {inserted ? alert() : null}
+        </>
     )
 }
 

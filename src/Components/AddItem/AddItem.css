@@ -34,3 +34,31 @@
     background-color: rgb(235, 204, 204);
     transition-duration: 0.4s;
 }
+
+.alert {
+    width: 20%;
+    padding: 0.3rem;
+    height: max-content;
+    background-color: lightgreen;
+    color: darkgreen;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    /* border: 1px solid black; */
+}
+
+.check-icon {
+    font-size: 20px;
+    margin: 2%;
+    stroke-width: 1;
+    /* border: 1px solid black; */
+}
+
+.success-alert-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+

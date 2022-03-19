@@ -22,7 +22,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-  res.send("HELLO");
+  res.send("HELLO WORLD");
 })
 
 app.get('/check', (req, res) => {
@@ -42,10 +42,8 @@ app.post('/additem', (req, res) => {
       if(err) {
         return console.error(err.message);
       };
-      console.log("a new row has been created");
     }
-  console.log("EL PRODUCT=", req.body);
-  res.send(req.body);
+    res.sendStatus(200)
 })
 
 // app.post('/', (req, res) => {

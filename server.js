@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const port = 5000
 
 const sqlite3 = require('sqlite3').verbose();
-const axios = require('axios');
 
 const db = new sqlite3.Database('./shopListDB.db', sqlite3.OPEN_READWRITE, (err) => {
   if(err) 
@@ -15,17 +14,16 @@ const db = new sqlite3.Database('./shopListDB.db', sqlite3.OPEN_READWRITE, (err)
 });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: '*',
   credentials: true
 }));
 
-// app.get('/check', (req, res) => {
-//   res.send('Hello World!')
-// })
-
-//http://localhost:3000/
+app.get('/', (req, res) => {
+  res.send("HELLO");
+})
 
 app.get('/check', (req, res) => {
   db.all("SELECT * FROM PRODUCTS", [], (err, products) => {
@@ -38,10 +36,22 @@ app.get('/check', (req, res) => {
   })
 })
 
+app.post('/additem', (req, res) => {
+  db.run("INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
+    [req.body.product, req.body.department, req.body.packeging]), (err) => {
+      if(err) {
+        return console.error(err.message);
+      };
+      console.log("a new row has been created");
+    }
+  console.log("EL PRODUCT=", req.body);
+  res.send(req.body);
+})
+
 // app.post('/', (req, res) => {
-//   req.body.map(prod => 
-//     db.run("INSERT INTO SHOPLIST(Product, Comment) VALUES (?,?)",
-//     [prod.product, prod.comment]), (err) => {
+//   req.body(item => 
+//     db.run("INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
+//     [item.product, item.department, item.packeging]), (err) => {
 //       if(err) {
 //         return console.error(err.message)
 //       };
@@ -49,17 +59,8 @@ app.get('/check', (req, res) => {
 //       console.log("a new row has been created")
 //     }
 //   )
+//   res.send("connected!");
 // })
-
-
-// db.all("SELECT * FROM PRODUCTS", [], (err, rows) => {
-//   if(err) return console.error(err.message);
-  
-//   rows.forEach(row => {
-//     console.log(row);
-//   })
-// })
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

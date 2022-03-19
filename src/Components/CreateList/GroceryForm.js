@@ -98,7 +98,7 @@ function GroceryForm() {
         setSelectedProduct(null);
         setInputs({product: '', amount: '', comment: ''});
         
-        console.log('product=' + selectedProduct, 'amount=' + inputs.amount, 'comment=' + inputs.comment);
+        console.log('product=' + selectedProduct.label, 'amount=' + inputs.amount, 'comment=' + inputs.comment);
     }
 
     const handleEditSubmit = (e) => {

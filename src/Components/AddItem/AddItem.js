@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Select from 'react-select';
 import axios from 'axios';
 import { BsCheck2Circle } from 'react-icons/bs'
+import { AiOutlineClose } from 'react-icons/ai'
 import './AddItem.css'
 
 function AddItem() {
@@ -78,6 +79,7 @@ function AddItem() {
                 <span className="success-alert-title"> Success! </span> <br />
                 Item added successfully...
             </div>
+            <AiOutlineClose className='close-alert-button' onClick={() => setInserted(false)}/>
         </div>
     }
 

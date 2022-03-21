@@ -6,6 +6,7 @@ header nav {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .link {
@@ -33,6 +34,7 @@ header .nav-btn {
     }
 
     header nav {
+        /* position: fixed; */
         display: flex;
         align-items: center;
         justify-content: center;

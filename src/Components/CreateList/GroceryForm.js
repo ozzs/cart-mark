@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select';
 import axios from 'axios';
-import './GroceryForm'
-import { useNavigate } from "react-router-dom";
+import './GroceryForm.css'
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 
@@ -15,15 +14,14 @@ function GroceryForm() {
     const fetchAllProducts = async() => {
         const response = await axios.get('http://localhost:5000/check');
         setAllProducts(response.data);
-        setOptions(response.data.map(product => ({value: product.name, label: product.name})))
+        //console.log("IDs: ", response.data.map(product => (product.ID)))
+        setOptions(response.data.map(product => ({id: product.ID, value: product.name, label: product.name})))
         setIsLoading(false);
     }
 
     useEffect(() => {
         fetchAllProducts();
     }, []); 
-
-    let navigate = useNavigate();
 
     const[inputs, setInputs] = useState({
         product: '',
@@ -49,7 +47,7 @@ function GroceryForm() {
             return;
         
         const inputsDetails = {
-            id: Math.floor(Math.random() * 10000),
+            id: selectedProduct.id,
             product: selectedProduct.label,
             amount: inputs.amount,
             comment: inputs.comment
@@ -76,6 +74,7 @@ function GroceryForm() {
         setEditProdId(product.id);
 
         const prodValues = {
+            id: product.id,
             product: product.product,
             amount: product.amount,
             comment: product.comment
@@ -119,11 +118,10 @@ function GroceryForm() {
         setEditProdId(null);
     }
 
-    const handleShopping = () => {
-        // axios.post('http://localhost:5000/', productList)
-        // .then(response => {console.log(response)})
-        // .catch(error => {console.log(error, error.response)});
-        navigate("/shoppinglist", { state: { shopList: productList } });
+    const closelist = () => {
+        axios.post('http://localhost:5000/closelist', productList)
+        .then(response => {console.log(response)})
+        .catch(error => {console.log(error, error.response)});
     }
 
     if (isLoading) {
@@ -191,8 +189,9 @@ function GroceryForm() {
             )}
         </div>
         <div className="shop-button">
-            <button onClick={() => handleShopping()}> Go Shopping! </button>
+            <button onClick={() => closelist()}> Close List </button>
         </div>
+        {/* {console.log(productList.map(product => (product.id)))} */}
         </>
     );
 }

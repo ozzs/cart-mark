@@ -1,11 +1,11 @@
 import React from 'react'
-import './CreateList.css';
+import './ReadProdRow.css';
 import { AiFillDelete } from 'react-icons/ai'
 import { FiEdit } from 'react-icons/fi'
 
 function ReadProdRow( {product, allProducts, removeProduct, index, handleEditClick} ) {
   return (  
-    <div className="product-row" key = {index}> 
+    <div className="product-row-read" key = {index}> 
         <div className="output-product"> {product.product} </div> 
 
         {allProducts.filter(prod => prod.name === product.product)
@@ -23,9 +23,11 @@ function ReadProdRow( {product, allProducts, removeProduct, index, handleEditCli
         <div className="output-comment"> {product.comment} </div>
         
         <div className="icons">
-        <FiEdit className="edit-button" 
+        <FiEdit className="edit-button"
+                title='edit'
                 onClick={(e) => handleEditClick(e, product)}/>
         <AiFillDelete   className="delete-button" 
+                        title='delete'
                         onClick={() => removeProduct(product.id)}/>
         </div>
     </div>

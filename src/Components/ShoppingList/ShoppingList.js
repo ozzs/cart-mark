@@ -1,27 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
-//import { useLocation, useNavigate } from "react-router-dom";
 
 function ShoppingList(props) {
     
+    const [shoppingList, setShoppingList] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
     const fetchShoppingList = async() => {
         const response = await axios.get('http://localhost:5000/shoppinglist');
-        // setAllProducts(response.data);
-        // setOptions(response.data.map(product => ({id: product.ID, value: product.name, label: product.name})))
-        // setIsLoading(false);
+        setShoppingList(response.data);
+        //console.log(response.data);
+        setIsLoading(false);
     }
 
     useEffect(() => {
         fetchShoppingList();
-    }, []); 
+    }, []);
+
+    const printShoppingList = (shoppingList) => {
+        const departments = shoppingList.map(item => item.department);
+        console.log(departments);
+        return departments.map(item => <div>{item}</div>);
+    }
+
+    if (isLoading) {
+        return <h2 className="loading-screen">Loading...</h2>;
+    }
 
     return (
+        <>
         <div className='block'>
             <h1>Shopping List</h1>
 
             
         </div>
+        
+        {printShoppingList(shoppingList)}
 
+
+        </>
     )
 }
 

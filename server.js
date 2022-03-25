@@ -67,16 +67,13 @@ app.post('/closelist', (req, res) => {
         if(err) return console.error(err.message);
       }
     })
-    // db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
-    // [id.ID, 2, 55, 'blabla']), (err) => {
-    //   if(err) return console.error(err.message);
-    // }
   });
 });
 
 app.get('/shoppinglist', (req, res) => {
-  db.all("SELECT * FROM SHOPPING_LISTS WHERE Status = 1", [], (err, list) => {
-    if(err) return console.error(err.message);
+  db.all("SELECT p.name, p.department, r.Amount, p.units, r.Comment FROM PRODUCTS p INNER JOIN RELATIONAL r ON p.ID = r.ProductID",
+    [], (err, list) => {
+      if(err) return console.error(err.message);
       
     list.forEach(prod => {
       console.log(prod);
@@ -86,5 +83,5 @@ app.get('/shoppinglist', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`App listening on port ${port}`)
 })

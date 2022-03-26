@@ -71,7 +71,7 @@ app.post('/closelist', (req, res) => {
 });
 
 app.get('/shoppinglist', (req, res) => {
-  db.all("SELECT p.name, p.department, r.Amount, p.units, r.Comment FROM PRODUCTS p INNER JOIN RELATIONAL r ON p.ID = r.ProductID",
+  db.all("SELECT p.ID, p.name, p.department, r.Amount, p.units, r.Comment FROM PRODUCTS p INNER JOIN RELATIONAL r ON p.ID = r.ProductID",
     [], (err, list) => {
       if(err) return console.error(err.message);
       

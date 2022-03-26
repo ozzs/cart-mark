@@ -1,4 +1,32 @@
-.item-check {
-    background-color: blueviolet;
+.department-title {
+    text-align: left;
+    background-color: #e0e0e0;
+    padding: 1rem;
+}
+
+.product-check {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.product-name {
+    width: 80px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid black;
+}
+
+.product-amount {
+    font-size: 16px;
+    margin-left: 5%;
+}
+
+.product-units {
+    font-size: 16px;
+}
+
+.product-comment {
+    font-size: 12px;
     color: red;
+    margin: 5%;
 }

@@ -17,27 +17,40 @@ function ShoppingList(props) {
         fetchShoppingList();
     }, []);
 
-    const printShoppingList = (shoppingList) => {
-        const departments = shoppingList.map(item => item.department);
-        console.log(departments);
-        return departments.map(item => <div>{item}</div>);
+    
+    const groupByDeparment = (shoppingList) => {
+        const departmentMap = {}
+
+        shoppingList.forEach(item => {
+            const department = item.department.toLowerCase()
+            if(!departmentMap[department]) {
+                departmentMap[department] = []
+            }
+            departmentMap[department].push(item)
+        });
+        return departmentMap
     }
 
     if (isLoading) {
         return <h2 className="loading-screen">Loading...</h2>;
     }
 
+    const departmentMap = groupByDeparment(shoppingList)
+
     return (
         <>
         <div className='block'>
             <h1>Shopping List</h1>
 
-            
+            {Object.keys(departmentMap).map(department => (
+                <div key={department}>
+                    <h2>{department}</h2>
+                    {departmentMap[department].map(item => (
+                        <span key={item.name}>{item.name}</span>
+                    ))}
+                    </div>
+            ))}
         </div>
-        
-        {printShoppingList(shoppingList)}
-
-
         </>
     )
 }

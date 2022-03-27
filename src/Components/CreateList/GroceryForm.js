@@ -12,9 +12,8 @@ function GroceryForm() {
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchAllProducts = async() => {
-        const response = await axios.get('http://localhost:5000/check');
+        const response = await axios.get('http://localhost:5000/createlist');
         setAllProducts(response.data);
-        //console.log("IDs: ", response.data.map(product => (product.ID)))
         setOptions(response.data.map(product => ({id: product.ID, value: product.name, label: product.name})))
         setIsLoading(false);
     }

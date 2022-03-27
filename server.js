@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   res.send("HELLO WORLD");
 })
 
-app.get('/check', (req, res) => {
+app.get('/createlist', (req, res) => {
   db.all("SELECT * FROM PRODUCTS", [], (err, products) => {
     if(err) return console.error(err.message);
       

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import "./ShoppingList.css"
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 function ShoppingList(props) {
     
@@ -31,10 +32,6 @@ function ShoppingList(props) {
         return departmentMap
     }
 
-    if (isLoading) {
-        return <h2 className="loading-screen">Loading...</h2>;
-    }
-
     const departmentMap = groupByDeparment(shoppingList)
 
     const checkProd = (shopList, id, check) => {
@@ -48,6 +45,10 @@ function ShoppingList(props) {
             return product;
         });
         setShoppingList(updatedList);
+    }
+
+    if (isLoading) {
+        return <LoadingPage />
     }
 
     return (

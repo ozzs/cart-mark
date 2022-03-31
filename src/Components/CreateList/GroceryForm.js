@@ -4,6 +4,7 @@ import axios from 'axios';
 import './GroceryForm.css'
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 function GroceryForm() {
 
@@ -124,7 +125,7 @@ function GroceryForm() {
     }
 
     if (isLoading) {
-        return <h2 className="loading-screen">Loading...</h2>;
+        return <LoadingPage />
     }
 
     return (
@@ -167,6 +168,10 @@ function GroceryForm() {
                         
                 <button className="add-item-button"> Add Item </button>
             </form>
+            <div className="notice">
+                <span style={{fontWeight: "bold"}}> NOTICE: </span>
+                <span> Adding new products without closing the previous shopping list will simply add them to the said list. </span>
+            </div>
         </div>
         <div className="block">
             <h3>Your shopping list</h3>

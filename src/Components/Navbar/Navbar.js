@@ -14,6 +14,7 @@ function Navbar() {
                 <NavLink to="/additem" className='link' activeclassname='active'> Add Item </NavLink>
                 <NavLink to="/createlist" className='link' activeclassname='active'> Create List </NavLink>
                 <NavLink to="/shoppinglist" className='link' activeclassname='active'> Go Shopping! </NavLink>
+                <NavLink to="/showlists" className='link' activeclassname='active'> Show Lists </NavLink>
             </nav>
             <FaBars className='nav-btn' onClick={() => setShowNavbar(!showNavbar)}/>
         </header>

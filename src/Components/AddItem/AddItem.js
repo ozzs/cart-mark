@@ -3,6 +3,7 @@ import Select from 'react-select';
 import axios from 'axios';
 import { BsCheck2Circle } from 'react-icons/bs'
 import { AiOutlineClose } from 'react-icons/ai'
+import { FaExclamationCircle } from 'react-icons/fa'
 import './AddItem.css'
 
 function AddItem() {
@@ -26,6 +27,7 @@ function AddItem() {
         { value: 'Spices', label: 'Spices' },
         { value: 'Cereals', label: 'Cereals' },
         { value: 'Drinks', label: 'Drinks' },
+        { value: 'General', label: 'General' },
     ];
 
     const packeging = [
@@ -38,6 +40,7 @@ function AddItem() {
     const [selectedDepartment, setSelectedDepartment] = useState(null);
     const [selectedPackeging, setSelectedPackaging] = useState(null);
     const [inserted, setInserted] = useState(false);
+    const [notInserted, setNotInserted] = useState(false);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -67,19 +70,36 @@ function AddItem() {
         axios.post('http://localhost:5000/additem', inputsDetails)
         .then(response => {
             console.log(response.status);
-            if (response.status === 200) 
-                setInserted(true) })
+            if (response.data.inserted) {
+                setInserted(true)
+                setNotInserted(false)
+            }
+            else {
+                setInserted(false)
+                setNotInserted(true)
+            }})
         .catch(error => {console.log(error, error.response)});
     }
 
-    const alert = () => {
-        return <div className="alert">
-            <BsCheck2Circle className="check-icon" />
-            <div className="success-alert">
-                <span className="success-alert-title"> Success! </span> <br />
-                Item added successfully...
+    const alertInserted = () => {
+        return <div className="alertInserted">
+            <BsCheck2Circle className="icon" />
+            <div className="alert-text">
+                <span className="alert-title"> Success! </span> <br />
+                Item added successfully... <br />
             </div>
-            <AiOutlineClose className='close-alert-button' onClick={() => setInserted(false)}/>
+            <AiOutlineClose className='close-alert-button-success' onClick={() => setInserted(false)}/>
+        </div>
+    }
+
+    const alertNotInserted = () => {
+        return <div className="alertNotInserted">
+            <FaExclamationCircle className="icon" />
+            <div className="alert-text">
+                <span className="alert-title"> Oops! </span> <br />
+                Something went wrong... <br />
+            </div>
+            <AiOutlineClose className='close-alert-button-oops' onClick={() => setNotInserted(false)}/>
         </div>
     }
 
@@ -117,7 +137,8 @@ function AddItem() {
             </form>
         </div>
 
-        {inserted ? alert() : null}
+        {inserted ? alertInserted() : null}
+        {notInserted ? alertNotInserted(): null}
         </>
     )
 }

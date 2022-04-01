@@ -24,18 +24,18 @@
 .add-item-button {
     width: 50%;
     background-color: transparent;
-    border-color: rgb(194, 90, 90);
+    border-color: rgb(1, 134, 61);
     border-radius: 0.5rem;
-    color: rgb(194, 90, 90);
+    color: rgb(1, 134, 61);
     margin: 1%;
 }
 
 .add-item-button:hover {
-    background-color: rgb(235, 204, 204);
-    transition-duration: 0.4s;
+    background-color: rgb(219, 250, 219);
+    transition-duration: 1s;
 }
 
-.alert {
+.alertInserted {
     width: 20%;
     padding: 0.3rem;
     height: max-content;
@@ -50,7 +50,7 @@
     /* border: 1px solid black; */
 }
 
-.check-icon {
+.icon {
     font-size: 20px;
     margin: 2%;
     padding-right: 5px;
@@ -58,12 +58,12 @@
     /* border: 1px solid black; */
 }
 
-.success-alert-title {
+.alert-title {
     font-weight: bold;
     font-size: 18px;
 }
 
-.close-alert-button {
+.close-alert-button-success {
     font-size: 20px;
     margin-left: auto;
     padding: 2%;
@@ -71,8 +71,37 @@
     border-radius: 50px;
 }
 
-.close-alert-button:hover {
+.close-alert-button-oops {
+    font-size: 20px;
+    margin-left: auto;
+    padding: 2%;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.close-alert-button-oops:hover {
+    border-radius: 50px;
+    background-color: rgb(240, 151, 151);
+    transition-duration: 0.8s;
+}
+
+.close-alert-button-success:hover {
     border-radius: 50px;
     background-color: rgb(163, 216, 163);
     transition-duration: 0.8s;
+}
+
+.alertNotInserted {
+    width: 20%;
+    padding: 0.3rem;
+    height: max-content;
+    background-color: rgb(235, 122, 102);
+    color: rgb(138, 1, 1);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    /* border: 1px solid black; */
 }

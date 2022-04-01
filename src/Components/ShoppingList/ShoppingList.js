@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import shopping_cart from './shopping_cart.png';
 import "./ShoppingList.css"
 import LoadingPage from "../LoadingPage/LoadingPage";
 
@@ -53,24 +54,31 @@ function ShoppingList(props) {
 
     return (
         <>
-        <div className='block'>
-            <h1>Shopping List</h1>
-
-            
+        <div className='title-container'>
+            <img    src={shopping_cart} 
+                    alt="shopping_cart"
+                    className="shopping_cart_left" />
+            <h1> Shopping List </h1>
+            <img    src={shopping_cart} 
+                    alt="shopping_cart"
+                    className="shopping_cart_right" />
         </div>
+
         {Object.keys(departmentMap).map(department => (
                 <div className="department" key={department}>
                     <h2 className="department-title"> {department} </h2>
                     {departmentMap[department].map(item => (
                         <ul className="products-list" key={item.name}>
-                            <li className={item.isComplete? "product-check" : "product"}
-                                onClick={() => checkProd(shoppingList, item.ID, true)}
-                                onDoubleClick={() => checkProd(shoppingList, item.ID, false)}> 
-                            <span className="product-name"> {item.name} </span>
-                            <span className="product-amount"> {item.Amount} </span>
-                            <span className="product-units"> {item.units} </span>
-                            <span className="product-comment"> {item.Comment} </span>
-                            </li>
+                            <div className="product-container">
+                                <li className={item.isComplete? "product-checked" : "product"}
+                                    onClick={() => checkProd(shoppingList, item.ID, true)}
+                                    onDoubleClick={() => checkProd(shoppingList, item.ID, false)}> 
+                                    <span className="product-name"> {item.name} </span>
+                                    <span className="product-amount"> {item.Amount} </span>
+                                    <span className="product-units"> {item.units} </span>
+                                    <span className="product-comment"> {item.Comment} </span>
+                                </li>
+                            </div>
                         </ul>
                     ))}
                 </div>

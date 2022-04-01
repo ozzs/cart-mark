@@ -40,10 +40,11 @@ app.post('/additem', (req, res) => {
   db.run("INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
     [req.body.product, req.body.department, req.body.packeging]), (err) => {
       if(err) {
+        res.send({inserted: false})
         return console.error(err.message);
       };
     }
-    res.sendStatus(200)
+    res.send({inserted: true})
 })
 
 app.get('/closelist', (req, res) => {

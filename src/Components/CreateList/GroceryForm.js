@@ -132,7 +132,7 @@ function GroceryForm() {
         <>
         <div className="block">
             <h2> Create a new shopping list </h2>
-            <div className="explanation"> Add a new item to the shopping list </div>
+            <div className="explanation"> Add a new product to the shopping list </div>
             <form   className="grocery-form"
                     onSubmit={handleSubmit}>
 
@@ -166,7 +166,7 @@ function GroceryForm() {
                         value={inputs.comment}
                         onChange={handleChange}/> <br />
                         
-                <button className="add-item-button"> Add Item </button>
+                <button className="add-product-button"> Add Product </button>
             </form>
             <div className="notice">
                 <span style={{fontWeight: "bold"}}> NOTICE: </span>

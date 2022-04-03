@@ -58,7 +58,7 @@ function ShoppingList(props) {
             <img    src={shopping_cart} 
                     alt="shopping_cart"
                     className="shopping_cart_left" />
-            <h1> Shopping List </h1>
+            <span className="shopping-list-title"> Shopping List </span>
             <img    src={shopping_cart} 
                     alt="shopping_cart"
                     className="shopping_cart_right" />
@@ -66,17 +66,17 @@ function ShoppingList(props) {
 
         {Object.keys(departmentMap).map(department => (
                 <div className="department" key={department}>
-                    <h2 className="department-title"> {department} </h2>
+                    <div className="department-title"> {department} </div>
                     {departmentMap[department].map(item => (
                         <ul className="products-list" key={item.name}>
                             <div className="product-container">
                                 <li className={item.isComplete? "product-checked" : "product"}
                                     onClick={() => checkProd(shoppingList, item.ID, true)}
                                     onDoubleClick={() => checkProd(shoppingList, item.ID, false)}> 
-                                    <span className="product-name"> {item.name} </span>
-                                    <span className="product-amount"> {item.Amount} </span>
-                                    <span className="product-units"> {item.units} </span>
-                                    <span className="product-comment"> {item.Comment} </span>
+                                    <div className="product-name"> {item.name} </div>
+                                    <div className="product-amount"> {item.Amount} </div>
+                                    <div className="product-units"> {item.units} </div>
+                                    <div className="product-comment"> {item.Comment} </div>
                                 </li>
                             </div>
                         </ul>

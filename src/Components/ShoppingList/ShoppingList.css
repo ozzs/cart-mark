@@ -1,31 +1,46 @@
 .title-container {
     background-color: #e0e0e0;
-    width: auto;
-    height: 150px;
-    padding: 1% 30% 1% 30%;
-    margin: 0 0 30px;
+    width: 100%;
+    height: 10vw;
+    margin-bottom: 30px;
     border-bottom: 3px solid black;
     border-top: 3px solid black;
-    text-align: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.shopping-list-title {
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 3% 0 3%;
 }
 
 .shopping_cart_left {
-    width: 25%;
-    height: fit-content;
+    width: 10%;
 }
 
 .shopping_cart_right {
-    width: 25%;
+    width: 10%;
     transform: scaleX(-1);
 }
 
 .department-title {
-    text-align: left;
     background-color: #e0e0e0;
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 1.3vw;
+    font-weight: bold;
     padding: 1rem;
+}
+
+li div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .product-checked span {
@@ -37,14 +52,15 @@
     display: inline-block;
     width: 8%;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1vw;
+    white-space: nowrap;
     /* border: 1px solid black; */
 }
 
 .product-amount {
     display: inline-block;
     width: 3%;
-    font-size: 16px;
+    font-size: 1vw;
     margin-left: 5%;
     /* border: 1px solid black; */
 }
@@ -52,12 +68,64 @@
 .product-units {
     display: inline-block;
     width: 8%;
-    font-size: 16px;
+    font-size: 1vw;
     /* border: 1px solid black; */
 }
 
 .product-comment {
     display: inline-block;
-    font-size: 12px;
+    font-size: 0.7vw;
     color: red;
+}
+
+@media only screen and (max-width: 425px) {
+
+    .title-container {
+        background-color: #e0e0e0;
+        width: 100%;
+        height: 20vw;
+        margin-bottom: 30px;
+        border-bottom: 3px solid black;
+        border-top: 3px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shopping-list-title {
+        font-size: 5vw;
+    }
+
+    .shopping_cart_left {
+        width: 20%;
+    }
+    
+    .shopping_cart_right {
+        width: 20%;
+        transform: scaleX(-1);
+    }
+
+    .department-title {
+        font-size: 4vw;
+    }
+
+    .product-name {
+        font-size: 3vw;
+        width: 25%;
+    }
+
+    .product-amount {
+        font-size: 3vw;
+        width: 9%;
+    }
+
+    .product-units {
+        font-size: 3vw;
+        width: 20%;
+    }
+
+    .product-comment {
+        font-size: 2vw;
+    }
+    
 }

@@ -86,7 +86,7 @@ function AddItem() {
             <BsCheck2Circle className="icon" />
             <div className="alert-text">
                 <span className="alert-title"> Success! </span> <br />
-                Item added successfully... <br />
+                <span className='alert-added'> Item added successfully... </span> <br />
             </div>
             <AiOutlineClose className='close-alert-button-success' onClick={() => setInserted(false)}/>
         </div>
@@ -105,9 +105,9 @@ function AddItem() {
 
     return (
         <>
-        <div className="block"> 
+        <div className="add-item-block"> 
             <h2>Add Item</h2>
-            <div className="explanation"> Add a new item to the database </div>
+            <div className="add-item-explanation"> Add a new item to the database </div>
             <form   className='addItem-form' 
                     onSubmit={handleSubmit}>
 

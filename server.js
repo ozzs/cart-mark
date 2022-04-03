@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/createlist', (req, res) => {
-  db.all("SELECT * FROM PRODUCTS", [], (err, products) => {
+  db.all("SELECT * FROM PRODUCTS ORDER BY name", [], (err, products) => {
     if(err) return console.error(err.message);
       
     products.forEach(prod => {
@@ -57,11 +57,15 @@ app.post('/closelist', (req, res) => {
   //     if(err) return console.error(err.message);
   //   //res.send(req.body.map(product => (product.id)));
   //   };
-
+  db.get("SELECT EXISTS(SELECT ID FROM SHOPPING_LISTS WHERE Status = 1)", (err, exists) => {
+    if(err) return console.error(err.message);
+    console.log("exists? ", exists)
+    res.send(exists);
+  })
   db.get("SELECT ID FROM SHOPPING_LISTS WHERE Status = 1", (err, id) => {
     if(err) return console.error(err.message);
     console.log("ID is:", id);
-  
+    
     req.body.map(product => {
       db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
       [id.ID, product.id, product.amount, product.comment]), (err) => {
@@ -72,7 +76,10 @@ app.post('/closelist', (req, res) => {
 });
 
 app.get('/shoppinglist', (req, res) => {
-  db.all("SELECT p.ID, p.name, p.department, r.Amount, p.units, r.Comment FROM PRODUCTS p INNER JOIN RELATIONAL r ON p.ID = r.ProductID",
+  db.all("SELECT PRODUCTS.ID, PRODUCTS.name, PRODUCTS.department, RELATIONAL.Amount, PRODUCTS.units, RELATIONAL.Comment \
+	          FROM PRODUCTS \
+		          INNER JOIN RELATIONAL ON PRODUCTS.ID = RELATIONAL.ProductID \
+		          INNER JOIN SHOPPING_LISTS ON Status = 1",
     [], (err, list) => {
       if(err) return console.error(err.message);
       

@@ -1,10 +1,20 @@
-header nav {
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
     background-color: #e0e0e0;
     height: 3rem;
     margin-bottom: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
+    transition: 500ms;
+}
+
+body {
+    position: relative;
+    margin-top: 5rem;
 }
 
 .link {
@@ -36,7 +46,7 @@ header nav {
     z-index: 2;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
     .nav-btn {
         visibility: visible;
     }
@@ -44,14 +54,14 @@ header nav {
     .hidden-navbar {
         position: fixed;
         top: 0;
-        right: 0;
         width: 100%;
-        height: 100%;
+        height: 50%;
+        border-bottom: 3px solid rgb(151, 151, 151);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: 1s;
+        transition: 500ms;
         z-index: 2;
     }
 

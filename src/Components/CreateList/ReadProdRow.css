@@ -19,6 +19,7 @@
     font-weight: bold;
     padding: 1%;
     /* border: 1px solid black; */
+    /* 3vw */
 }
 
 .output-department {
@@ -29,16 +30,7 @@
     font-size: 12px;
     padding: 1%;
     /* border: 1px solid black; */
-}
-
-.output-units {
-    position: relative;
-    width: 15%;
-    text-align: left;
-    margin-right: auto;
-    font-size: 12px;
-    padding: 1%;
-    /* border: 1px solid black; */
+    /* font-size: 2.7vw; */
 }
 
 .output-amount {
@@ -84,4 +76,31 @@
 
 .shop-button {
     text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+    .output-product {
+        font-size: 3vw;
+        width: 15%;
+        /* border: 1px solid black */
+    }
+    
+    .output-department {
+        font-size: 2.7vw;
+        width: 15%;
+        /* border: 1px solid black */
+    }
+
+    .output-amount {
+        width: 20%;
+        font-size: 2.7vw;
+        /* border: 1px solid black; */
+    }
+
+    .output-comment {
+        width: 15%;
+        font-size: 2.7vw;
+        /* border: 1px solid black; */
+    }
+
 }

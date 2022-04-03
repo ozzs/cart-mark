@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 import shopping_cart from './shopping_cart.png';
 import "./ShoppingList.css"
@@ -48,6 +49,13 @@ function ShoppingList(props) {
         setShoppingList(updatedList);
     }
 
+    const handleFinish = (e) => {
+        axios.post('http://localhost:5000/finishshopping')
+        .then(response => {
+            console.log(response.status)})
+        .catch(error => {console.log(error, error.response)});
+    }
+
     if (isLoading) {
         return <LoadingPage />
     }
@@ -65,24 +73,29 @@ function ShoppingList(props) {
         </div>
 
         {Object.keys(departmentMap).map(department => (
-                <div className="department" key={department}>
-                    <div className="department-title"> {department} </div>
-                    {departmentMap[department].map(item => (
-                        <ul className="products-list" key={item.name}>
-                            <div className="product-container">
-                                <li className={item.isComplete? "product-checked" : "product"}
-                                    onClick={() => checkProd(shoppingList, item.ID, true)}
-                                    onDoubleClick={() => checkProd(shoppingList, item.ID, false)}> 
-                                    <div className="product-name"> {item.name} </div>
-                                    <div className="product-amount"> {item.Amount} </div>
-                                    <div className="product-units"> {item.units} </div>
-                                    <div className="product-comment"> {item.Comment} </div>
-                                </li>
-                            </div>
-                        </ul>
-                    ))}
-                </div>
-            ))}
+            <div className="department" key={department}>
+                <div className="department-title"> {department} </div>
+                {departmentMap[department].map(item => (
+                    <ul className="products-list" key={item.name}>
+                        <div className="product-container">
+                            <li className={item.isComplete? "product-checked" : "product"}
+                                onClick={() => checkProd(shoppingList, item.ID, true)}
+                                onDoubleClick={() => checkProd(shoppingList, item.ID, false)}> 
+                                <div className="product-name"> {item.name} </div>
+                                <div className="product-amount"> {item.Amount} </div>
+                                <div className="product-units"> {item.units} </div>
+                                <div className="product-comment"> {item.Comment} </div>
+                            </li>
+                        </div>
+                    </ul>
+                ))}
+            </div>
+        ))}
+        
+        <Link to="/" className='finish-shopping'> 
+        <button className="finish-button" onClick={handleFinish}> Finish </button>
+        </Link>
+        
         </>
     )
 }

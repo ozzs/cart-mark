@@ -78,6 +78,26 @@ li div {
     color: red;
 }
 
+.finish-shopping {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.finish-button {
+    margin-top: 3%;
+    width: 25%;
+    background-color: transparent;
+    border-color: rgb(1, 134, 61);
+    border-radius: 0.5rem;
+    color: rgb(1, 134, 61);
+}
+
+.finish-button:hover {
+    background-color: rgb(219, 250, 219);
+    transition-duration: 1s;
+}
+
 @media only screen and (max-width: 425px) {
 
     .title-container {
@@ -127,5 +147,9 @@ li div {
     .product-comment {
         font-size: 2vw;
     }
-    
+
+    .finish-button {
+        width: 35%;
+        font-size: 4vw;
+    }
 }

@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const { Dvr } = require('@mui/icons-material')
 const port = 5000
 
 const sqlite3 = require('sqlite3').verbose();
@@ -52,34 +53,54 @@ app.get('/closelist', (req, res) => {
 })
 
 app.post('/closelist', (req, res) => {
-  // db.run("INSERT INTO SHOPPING_LISTS(Date, Status) VALUES (datetime('now'), 1)"), 
-  //   (err) => {
-  //     if(err) return console.error(err.message);
-  //   //res.send(req.body.map(product => (product.id)));
-  //   };
-  db.get("SELECT EXISTS(SELECT ID FROM SHOPPING_LISTS WHERE Status = 1)", (err, exists) => {
-    if(err) return console.error(err.message);
-    console.log("exists? ", exists)
-    res.send(exists);
-  })
-  db.get("SELECT ID FROM SHOPPING_LISTS WHERE Status = 1", (err, id) => {
-    if(err) return console.error(err.message);
-    console.log("ID is:", id);
-    
-    req.body.map(product => {
-      db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
-      [id.ID, product.id, product.amount, product.comment]), (err) => {
+
+  db.get("SELECT 1 FROM SHOPPING_LISTS WHERE Status = 1", (err, check) => {
+    if(err) 
+      return console.error(err.message);
+
+    if(check === undefined) {
+      console.log("NO LIST EXISTS")
+      db.run("INSERT INTO SHOPPING_LISTS(Date, Status) VALUES (datetime('now'), 1)"), 
+      (err) => {
         if(err) return console.error(err.message);
+        res.send(req.body.map(product => (product.id)));
       }
-    })
-  });
+
+      db.get("SELECT ID FROM SHOPPING_LISTS WHERE Status = 1", (err, id) => {
+        if(err) return console.error(err.message);
+        console.log("ID is:", id);
+        
+        req.body.map(product => {
+          db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
+          [id.ID, product.id, product.amount, product.comment]), (err) => {
+            if(err) return console.error(err.message);
+          }
+        })
+      });
+    }
+
+    else {
+      console.log("LIST EXISTS!")
+      db.get("SELECT ID FROM SHOPPING_LISTS WHERE Status = 1", (err, id) => {
+        if(err) return console.error(err.message);
+        console.log("ID is:", id);
+        
+        req.body.map(product => {
+          db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
+          [id.ID, product.id, product.amount, product.comment]), (err) => {
+            if(err) return console.error(err.message);
+          }
+        })
+      });
+    }
+  })
 });
 
 app.get('/shoppinglist', (req, res) => {
   db.all("SELECT PRODUCTS.ID, PRODUCTS.name, PRODUCTS.department, RELATIONAL.Amount, PRODUCTS.units, RELATIONAL.Comment \
 	          FROM PRODUCTS \
 		          INNER JOIN RELATIONAL ON PRODUCTS.ID = RELATIONAL.ProductID \
-		          INNER JOIN SHOPPING_LISTS ON Status = 1",
+		          INNER JOIN SHOPPING_LISTS ON SHOPPING_LISTS.ID = RELATIONAL.ListID WHERE Status = 1",
     [], (err, list) => {
       if(err) return console.error(err.message);
       
@@ -88,6 +109,13 @@ app.get('/shoppinglist', (req, res) => {
     })
     res.send(list);
   })
+})
+
+app.post('/finishshopping', (req, res) => {
+  db.run("UPDATE SHOPPING_LISTS SET Status = 0 WHERE Status = 1"), (err) => {
+    if(err) return console.error(err.message);
+    res.send("Status updated to 0!")
+  }
 })
 
 app.listen(port, () => {

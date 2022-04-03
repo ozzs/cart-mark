@@ -98,6 +98,21 @@ li div {
     transition-duration: 1s;
 }
 
+.alert-no-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 30%;
+    height: 6vw;
+    font-size: 1.5vw;
+    border: 3px solid black;
+    border-radius: 5rem;
+    text-align: center;
+    background-color: #e0e0e0;
+    margin-top: 2.5%;
+}
+
 @media only screen and (max-width: 425px) {
 
     .title-container {
@@ -151,5 +166,11 @@ li div {
     .finish-button {
         width: 35%;
         font-size: 4vw;
+    }
+
+    .alert-no-list {
+        width: 60%;
+        height: 15vw;
+        font-size: 3vw;
     }
 }

@@ -49,11 +49,12 @@ function ShoppingList(props) {
         setShoppingList(updatedList);
     }
 
-    const handleFinish = (e) => {
+    const handleFinish = () => {
         axios.post('http://localhost:5000/finishshopping')
         .then(response => {
             console.log(response.status)})
         .catch(error => {console.log(error, error.response)});
+        setShoppingList([]);
     }
 
     if (isLoading) {
@@ -92,9 +93,14 @@ function ShoppingList(props) {
             </div>
         ))}
         
-        <Link to="/" className='finish-shopping'> 
-        <button className="finish-button" onClick={handleFinish}> Finish </button>
-        </Link>
+        {!shoppingList.length ? 
+            <div className="alert-no-list"> 
+                No list to display... <br />
+                Go ahead and create one!
+            </div> :
+            <Link to="/" className='finish-shopping'> 
+                <button className="finish-button" onClick={handleFinish}> Finish </button>
+            </Link> }
         
         </>
     )

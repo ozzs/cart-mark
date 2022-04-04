@@ -95,7 +95,7 @@ li div {
 
 .finish-button:hover {
     background-color: rgb(219, 250, 219);
-    transition-duration: 1s;
+    transition-duration: 0.4s;
 }
 
 .alert-no-list {

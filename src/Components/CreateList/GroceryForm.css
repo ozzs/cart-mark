@@ -92,7 +92,7 @@ button {
 
 .add-product-button:hover {
     background-color: rgb(219, 250, 219);
-    transition-duration: 1s;
+    transition-duration: 0.4s;
 }
 
 .notice {
@@ -103,6 +103,18 @@ button {
 
 .shop-button {
     text-align: center;
+}
+
+.openModalBtn {
+    background-color: transparent;
+    border-color: rgb(79, 133, 233);
+    border-radius: 0.5rem;
+    color: rgb(79, 133, 233);
+}
+
+.openModalBtn:hover {
+    background-color: rgb(209, 225, 255);
+    transition-duration: 0.4s;
 }
 
 @media only screen and (max-width: 768px) {

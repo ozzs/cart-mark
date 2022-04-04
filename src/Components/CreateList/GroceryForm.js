@@ -5,6 +5,7 @@ import './GroceryForm.css'
 import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 import LoadingPage from "../LoadingPage/LoadingPage";
+import Modal from "../Modal";
 
 function GroceryForm() {
 
@@ -124,6 +125,8 @@ function GroceryForm() {
         .catch(error => {console.log(error, error.response)});
     }
 
+    const[openModal, setOpenModal] = useState(false);
+
     if (isLoading) {
         return <LoadingPage />
     }
@@ -193,9 +196,12 @@ function GroceryForm() {
             )}
         </div>
         <div className="shop-button">
-            <button onClick={() => closelist()}> Close List </button>
+            <button className="openModalBtn" 
+                    onClick={() => setOpenModal(true)}> Close List </button>
         </div>
-        {/* {console.log(productList.map(product => (product.id)))} */}
+        
+        {openModal && <Modal closeModal={setOpenModal} closelist={closelist}/>}
+
         </>
     );
 }

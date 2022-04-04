@@ -52,7 +52,7 @@
 
 .add-item-button:hover {
     background-color: rgb(219, 250, 219);
-    transition-duration: 1s;
+    transition-duration: 0.4s;
 }
 
 .alertInserted {

@@ -37,6 +37,17 @@ app.get('/createlist', (req, res) => {
   })
 })
 
+app.get('/showlists', (req, res) => {
+  db.all("SELECT Date FROM SHOPPING_LISTS WHERE Status = 0", [], (err, dates) => {
+    if(err) return console.error(err.message);
+
+    dates.forEach(date => {
+      console.log(date);
+    })
+    res.send(dates);
+  })
+})
+
 app.post('/additem', (req, res) => {
   db.run("INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
     [req.body.product, req.body.department, req.body.packeging]), (err) => {
@@ -60,7 +71,7 @@ app.post('/closelist', (req, res) => {
 
     if(check === undefined) {
       console.log("NO LIST EXISTS")
-      db.run("INSERT INTO SHOPPING_LISTS(Date, Status) VALUES (datetime('now'), 1)"), 
+      db.run("INSERT INTO SHOPPING_LISTS(Date, Status) VALUES (DATE(), 1)"), 
       (err) => {
         if(err) return console.error(err.message);
         res.send(req.body.map(product => (product.id)));

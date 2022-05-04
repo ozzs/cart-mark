@@ -31,7 +31,7 @@ function ShoppingList(props) {
             }
             departmentMap[department].push(item)
         });
-        return departmentMap
+        return departmentMap;
     }
 
     const departmentMap = groupByDeparment(shoppingList)

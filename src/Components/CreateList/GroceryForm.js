@@ -6,6 +6,7 @@ import ReadProdRow from "./ReadProdRow";
 import EditProdRow from "./EditProdRow";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Modal from "../Modal";
+import { useNavigate } from "react-router-dom";
 
 function GroceryForm() {
 
@@ -119,9 +120,15 @@ function GroceryForm() {
         setEditProdId(null);
     }
 
-    const closelist = () => {
-        axios.post('http://localhost:5000/closelist', productList)
-        .then(response => {console.log(response)})
+    let navigate = useNavigate();
+
+    const closelist = async() => {
+
+        await axios.post('http://localhost:5000/closelist', productList)
+        .then(response => {
+            console.log("Updated or Added?: ", response.data);
+            navigate('/shoppinglist');
+        })
         .catch(error => {console.log(error, error.response)});
     }
 

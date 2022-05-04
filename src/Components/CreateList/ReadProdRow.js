@@ -5,7 +5,7 @@ import { FiEdit } from 'react-icons/fi'
 
 function ReadProdRow( {product, allProducts, removeProduct, index, handleEditClick} ) {
   return (  
-    <div className="product-row-read" key = {index}> 
+    <div className="product-row-read" key={index}> 
         <div className="output-product"> {product.product} </div> 
 
         {allProducts.filter(prod => prod.name === product.product)

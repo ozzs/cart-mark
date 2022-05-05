@@ -51,7 +51,7 @@ app.get('/showlists', (req, res) => {
 
 app.post('/additem', (req, res) => {
   db.run("INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
-    [req.body.product, req.body.department, req.body.packeging]), (err) => {
+    [req.body.product, req.body.department, req.body.units]), (err) => {
       if(err) {
         res.send({inserted: false})
         return console.error(err.message);

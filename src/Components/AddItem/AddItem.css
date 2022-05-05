@@ -67,7 +67,14 @@
     margin: auto;
     margin-top: 2%;
     border-radius: 0.5rem;
+    animation: scale-alert 0.5s forwards;
+    opacity: 0;
     /* border: 1px solid black; */
+}
+
+@keyframes scale-alert {
+    from { transform: scale(0%); }
+    to { transform: scale(100%); opacity: 1; }
 }
 
 .icon {
@@ -123,6 +130,8 @@
     margin: auto;
     margin-top: 2%;
     border-radius: 0.5rem;
+    animation: scale-alert 1s forwards;
+    opacity: 0;
     /* border: 1px solid black; */
 }
 

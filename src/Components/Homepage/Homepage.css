@@ -6,11 +6,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: scale-container 1s;
+    animation: scale-container 0.8s;
 }
 
 @keyframes scale-container {
-    from { transform: scaleX(5%); }
+    from { transform: scaleX(0%); }
     to { transform: scaleX(100%); }
 }
 
@@ -20,7 +20,7 @@
     height: 30vw;
     object-fit: contain;
     animation: scale-banner 2s forwards;
-    animation-delay: 1s;
+    animation-delay: 0.6s;
     opacity: 0;
 }
 
@@ -46,7 +46,7 @@
     background-color: cadetblue;
     color: white;
     text-align: center;
-    animation: slide-boxes 2s forwards;
+    animation: slide-boxes 1.5s forwards;
     visibility: hidden;
 }
 
@@ -55,10 +55,10 @@
     to { transform: translateY(0%); visibility: visible; }
 }
 
-.boxes-container .box:nth-child(1) { animation-delay: 2s; }
-.boxes-container .box:nth-child(2) { animation-delay: 2.5s; }
-.boxes-container .box:nth-child(3) { animation-delay: 3s; }
-.boxes-container .box:nth-child(4) { animation-delay: 3.5s; }
+.boxes-container .box:nth-child(1) { animation-delay: 1.5s; }
+.boxes-container .box:nth-child(2) { animation-delay: 2s; }
+.boxes-container .box:nth-child(3) { animation-delay: 2.5s; }
+.boxes-container .box:nth-child(4) { animation-delay: 3s; }
 
 .icon {
     font-size: 2vh;

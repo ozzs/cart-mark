@@ -8,6 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: scale-container 0.7s;
+}
+
+@keyframes scale-container {
+    from { transform: scaleX(0%); }
+    to { transform: scaleX(100%); }
 }
 
 .shopping-list-title {
@@ -15,15 +21,38 @@
     font-weight: bold;
     text-align: center;
     margin: 0 3% 0 3%;
+    animation: scale-title 1s forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+@keyframes scale-title {
+    from { transform: scale(0%); }
+    to { transform: scale(100%); opacity: 1; }
 }
 
 .shopping_cart_left {
     width: 10%;
+    visibility: hidden;
+    animation: left-cart-effect 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes left-cart-effect {
+    from { transform: translateX(calc(-100vh)); }
+    to { transform: translateX(0%); visibility: visible; }
 }
 
 .shopping_cart_right {
     width: 10%;
-    transform: scaleX(-1);
+    visibility: hidden;
+    animation: right-cart-effect 1.5s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes right-cart-effect {
+    from { transform: translateX(calc(100vh)) scaleX(-1); }
+    to { transform: translateX(0%) scaleX(-1); visibility: visible; }
 }
 
 .department-title {
@@ -35,6 +64,24 @@
     font-size: 1.3vw;
     font-weight: bold;
     padding: 1rem;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.product-container {
+    user-select: none;
+}
+
+.product {
+    opacity: 0;
+}
+
+li {
+    animation-delay: 5s;
 }
 
 li div {
@@ -43,7 +90,7 @@ li div {
     justify-content: space-between;
 }
 
-.product-checked span {
+.product-checked div {
     text-decoration: line-through;
     opacity: 0.6;
 }
@@ -91,6 +138,14 @@ li div {
     border-color: rgb(1, 134, 61);
     border-radius: 0.5rem;
     color: rgb(1, 134, 61);
+    animation: scale-button 1.5s forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+
+@keyframes scale-button {
+    from { transform: scale(0%); }
+    to { transform: scale(100%); opacity: 1; }
 }
 
 .finish-button:hover {

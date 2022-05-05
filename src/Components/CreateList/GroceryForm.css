@@ -1,152 +1,164 @@
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-  
-h1, h2, h3{
-    text-align: center;
+
+h1,
+h2,
+h3 {
+  text-align: center;
 }
-  
+
 .block {
-    background-color: #e0e0e0;
-    padding: 0.5%;
-    margin: 10px 30% 10px 30%;
-    border-radius: 0.5rem;
-    text-align: center;
-    word-wrap: break-word;
+  background-color: #e0e0e0;
+  padding: 0.5%;
+  margin: 10px 30% 10px 30%;
+  border-radius: 0.5rem;
+  text-align: center;
+  word-wrap: break-word;
 }
 
 .explanation {
-    width: 50%;
-    border-bottom: 1px solid rgb(146, 144, 144);
-    font-size: 14px;
-    color: rgb(146, 144, 144);
-    text-align: left;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
+  width: 50%;
+  border-bottom: 1px solid rgb(146, 144, 144);
+  font-size: 14px;
+  color: rgb(146, 144, 144);
+  text-align: left;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .input-product {
-    width: 50%;
-    height: 40px;
-    font-size: large;
-    box-sizing: border-box;
-    padding-left: 7px;
+  width: 50%;
+  height: 40px;
+  font-size: large;
+  box-sizing: border-box;
+  padding-left: 7px;
 }
 
 .products {
-    width: 50%;
-    text-align: left;
-    display: inline-block;
-    margin: 1%;
+  width: 50%;
+  text-align: left;
+  display: inline-block;
+  margin: 1%;
 }
 
 .amount-elements {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
 }
 
 .input-amount {
-    width: 50%;
-    height: 25px;
-    box-sizing: border-box;
-    padding-left: 7px;
+  width: 50%;
+  height: 25px;
+  box-sizing: border-box;
+  padding-left: 7px;
 }
 
 .show-units {
-    font-size: 70%;
-    font-weight: bold;
-    align-items: center;
-    display: flex;
-    margin-left: 2%;
+  font-size: 70%;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+  margin-left: 2%;
 }
 
 .input-comment {
-    width: 50%;
-    height: 25px;
-    box-sizing: border-box;
-    padding-left: 7px;
-    margin: 1%;
+  width: 50%;
+  height: 25px;
+  box-sizing: border-box;
+  padding-left: 7px;
+  margin: 1%;
 }
-  
+
 button {
-    font-weight: bold;
-    font-size: large;
-    height: 40px;
-    width: 200px;
-    margin: 5px;
-    cursor: pointer;
-    border: 1px solid;
+  font-weight: bold;
+  font-size: large;
+  height: 40px;
+  width: 200px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid;
 }
 
 .add-product-button {
-    width: 50%;
-    background-color: transparent;
-    border-color: rgb(1, 134, 61);
-    border-radius: 0.5rem;
-    color: rgb(1, 134, 61);
+  width: 50%;
+  background-color: transparent;
+  border-color: rgb(1, 134, 61);
+  border-radius: 0.5rem;
+  color: rgb(1, 134, 61);
 }
 
 .add-product-button:hover {
-    background-color: rgb(219, 250, 219);
-    transition-duration: 0.4s;
+  background-color: rgb(219, 250, 219);
+  transition-duration: 0.4s;
 }
 
 .notice {
-    font-size: 12px;
-    text-align: left;
-    margin: 0.8rem;
+  font-size: 12px;
+  text-align: left;
+  margin: 0.8rem;
 }
 
+/* .check { 
+  animation: scale-out 0.5s forwards; 
+  background-color: yellowgreen;
+}
+
+@keyframes scale-out {
+  from { transform: scale(5%, 5%); }
+  to { transform: scale(100%, 100%); }
+} */
+
 .shop-button {
-    text-align: center;
+  text-align: center;
 }
 
 .openModalBtn {
-    background-color: transparent;
-    border-color: rgb(79, 133, 233);
-    border-radius: 0.5rem;
-    color: rgb(79, 133, 233);
+  background-color: transparent;
+  border-color: rgb(79, 133, 233);
+  border-radius: 0.5rem;
+  color: rgb(79, 133, 233);
 }
 
 .openModalBtn:hover {
-    background-color: rgb(209, 225, 255);
-    transition-duration: 0.4s;
+  background-color: rgb(209, 225, 255);
+  transition-duration: 0.4s;
 }
 
 @media only screen and (max-width: 768px) {
+  .block {
+    background-color: #e0e0e0;
+    margin: 10px 20px 10px 20px;
+  }
 
-    .block {
-        background-color: #e0e0e0;
-        margin: 10px 20px 10px 20px;
-    }
+  .explanation {
+    width: 90%;
+  }
 
-    .explanation {
-        width: 90%;
-    }
+  .products {
+    width: 90%;
+    height: 10vw;
+    font-size: 3.5vw;
+  }
 
-    .products {
-        width: 90%;
-        height: 10vw;
-        font-size: 3.5vw;
-    }
+  .amount-elements {
+    width: 90%;
+  }
 
-    .amount-elements {
-        width: 90%;
-    }
+  .input-amount {
+    width: 50%;
+  }
 
-    .input-amount {
-        width: 50%;
-    }
+  .input-comment {
+    width: 90%;
+  }
 
-    .input-comment {
-        width: 90%;
-    }
-    
-    .add-product-button {
-        font-size: 4vw;
-    }
+  .add-product-button {
+    font-size: 4vw;
+  }
 }

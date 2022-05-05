@@ -7,11 +7,15 @@ const port = 5000
 
 const sqlite3 = require('sqlite3').verbose();
 
-const db = new sqlite3.Database('./shopListDB.db', sqlite3.OPEN_READWRITE, (err) => {
+const logIfError = (err) => {
   if(err) {
     console.error(err.message);
     return;
   }
+}
+
+const db = new sqlite3.Database('./shopListDB.db', sqlite3.OPEN_READWRITE, (err) => {
+  logIfError(err);
 
   console.log('connection with database successful');
 });
@@ -30,7 +34,7 @@ app.get('/', (req, res) => {
 
 app.get('/createlist', (req, res) => {
   db.all("SELECT * FROM PRODUCTS ORDER BY name", [], (err, products) => {
-    if(err) return console.error(err.message);
+    logIfError(err);
       
     products.forEach(prod => {
       console.log(prod);
@@ -41,7 +45,7 @@ app.get('/createlist', (req, res) => {
 
 app.get('/showlists', (req, res) => {
   db.all("SELECT Date FROM SHOPPING_LISTS WHERE Status = 0", [], (err, dates) => {
-    if(err) return console.error(err.message);
+    logIfError(err);
 
     dates.forEach(date => {
       console.log(date);
@@ -68,25 +72,25 @@ app.get('/closelist', (req, res) => {
 app.post('/closelist', (req, res) => {
 
   db.get("SELECT 1 FROM SHOPPING_LISTS WHERE Status = 1", (err, check) => {
-    if(err) 
-      return console.error(err.message);
+    logIfError(err);
 
     if(check === undefined) {
       console.log("NO LIST EXISTS")
       db.run("INSERT INTO SHOPPING_LISTS(Date, Status) VALUES (DATE(), 1)"), 
       (err) => {
-        if(err) return console.error(err.message);
+        logIfError(err);
         res.send(req.body.map(product => (product.id)));
       }
 
       db.get("SELECT ID FROM SHOPPING_LISTS WHERE Status = 1", (err, id) => {
-        if(err) return console.error(err.message);
+        logIfError(err);
+
         console.log("ID is:", id);
         
-        req.body.map(product => {
+        req.map(product => {
           db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
           [id.ID, product.id, product.amount, product.comment]), (err) => {
-            if(err) return console.error(err.message);
+            logIfError(err);
           }
         })
       });
@@ -95,13 +99,14 @@ app.post('/closelist', (req, res) => {
     else {
       console.log("LIST EXISTS!")
       db.get("SELECT ID FROM SHOPPING_LISTS WHERE Status = 1", (err, id) => {
-        if(err) return console.error(err.message);
+        logIfError(err);
+
         console.log("ID is:", id);
         
         req.body.map(product => {
           db.run("INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
           [id.ID, product.id, product.amount, product.comment]), (err) => {
-            if(err) return console.error(err.message);
+            logIfError(err);
           }
         })
       });
@@ -116,7 +121,7 @@ app.get('/shoppinglist', (req, res) => {
 		          INNER JOIN RELATIONAL ON PRODUCTS.ID = RELATIONAL.ProductID \
 		          INNER JOIN SHOPPING_LISTS ON SHOPPING_LISTS.ID = RELATIONAL.ListID WHERE Status = 1",
     [], (err, list) => {
-      if(err) return console.error(err.message);
+      logIfError(err);
       
     list.forEach(prod => {
       console.log(prod);
@@ -127,7 +132,7 @@ app.get('/shoppinglist', (req, res) => {
 
 app.post('/finishshopping', (req, res) => {
   db.run("UPDATE SHOPPING_LISTS SET Status = 0 WHERE Status = 1"), (err) => {
-    if(err) return console.error(err.message);
+    logIfError(err);
     res.send("Status updated to 0!")
   }
 })

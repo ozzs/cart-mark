@@ -5,7 +5,8 @@ import shopping_cart from "./shopping_cart.png";
 import "./ShoppingList.css";
 import LoadingPage from "../LoadingPage/LoadingPage";
 
-const fadeTitle = (i) => `fadeIn 1s ease-out ${1200 + (500 * (i + 1))}ms forwards`;
+const fadeTitle = (i) =>
+  `fadeIn 1s ease-out ${1200 + 500 * (i + 1)}ms forwards`;
 
 function ShoppingList(props) {
   const [shoppingList, setShoppingList] = useState([]);

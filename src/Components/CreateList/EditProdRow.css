@@ -1,128 +1,127 @@
 .product-row-edit {
-    display: block;
-    background-color: #f5f5f5;
-    padding: 1%;
-    margin-left: 5px;
-    margin-bottom: 10px;
-    border-radius: 0.3rem;
-    width: 96%;
-    word-wrap: break-word;
-    align-items: center;
+  display: block;
+  background-color: #f5f5f5;
+  padding: 1%;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border-radius: 0.3rem;
+  width: 96%;
+  word-wrap: break-word;
+  align-items: center;
 }
 
 .outputs-edit {
-    display: flex;
-    justify-content: space-between;
-    padding: 1% 1% 0 1%;
-    margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 1% 0 1%;
+  margin-left: 5px;
 }
 
 .edits {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1% 1% 0 1%;
-    margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 1% 0 1%;
+  margin-left: 5px;
 }
 
 .outputs-edit .output-product {
-    text-align: left;
-    width: 33%;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 1%;
-    /* border: 1px solid black; */
+  text-align: left;
+  width: 33%;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .outputs-edit .output-department {
-    text-align: center;
-    width: 33%;
-    font-size: 12px;
-    padding: 1%;
-    /* border: 1px solid black; */
+  text-align: center;
+  width: 33%;
+  font-size: 12px;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .outputs-edit .output-units {
-    text-align: right;
-    width: 33%;
-    font-size: 12px;
-    padding: 1%;
-    /* border: 1px solid black; */
+  text-align: right;
+  width: 33%;
+  font-size: 12px;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .edits span {
-    display: flex;
-    align-items: center;
-    padding: 1% 2% 1% 1%;
-    font-weight: bold;
-    font-size: 12px;
+  display: flex;
+  align-items: center;
+  padding: 1% 2% 1% 1%;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .edit-amount {
-    width: 10%;
-    height: 25px;
-    box-sizing: border-box;
-    padding-left: 7px;
+  width: 10%;
+  height: 25px;
+  box-sizing: border-box;
+  padding-left: 7px;
 }
 
 .edit-comment {
-    width: 50%;
-    height: 25px;
-    box-sizing: border-box;
-    padding-left: 7px;
+  width: 50%;
+  height: 25px;
+  box-sizing: border-box;
+  padding-left: 7px;
 }
 
 .product-row-edit .icons-edit {
-    display: flex;
-    justify-content: space-between;
-    width: 10%;
-    margin-left: auto;
-    cursor: pointer;
-    font-size: 25px;
-    padding-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 25px;
+  padding-top: 3%;
 }
 
 .edit-button:hover {
-    color: forestgreen;
-    transition-duration: 0.2s;
+  color: forestgreen;
+  transition-duration: 0.2s;
 }
 
 .delete-button:hover {
-    color: crimson;
-    transition-duration: 0.2s;
+  color: crimson;
+  transition-duration: 0.2s;
 }
 
 @media only screen and (max-width: 425px) {
-    .outputs-edit .output-product {
-        font-size: 3vw;
-        width: 15%;
-        /* border: 1px solid black */
-    }
-    
-    .outputs-edit .output-department {
-        font-size: 2.7vw;
-        width: 15%;
-        /* border: 1px solid black */
-    }
+  .outputs-edit .output-product {
+    font-size: 3vw;
+    width: 15%;
+    /* border: 1px solid black */
+  }
 
-    .outputs-edit .output-units {
-        width: 20%;
-        font-size: 2.7vw;
-        /* border: 1px solid black; */
-    }
+  .outputs-edit .output-department {
+    font-size: 2.7vw;
+    width: 15%;
+    /* border: 1px solid black */
+  }
 
-    .edits span {
-        font-size: 2.8vw;
-    }
+  .outputs-edit .output-units {
+    width: 20%;
+    font-size: 2.7vw;
+    /* border: 1px solid black; */
+  }
 
-    .edit-amount {
-        height: 5vw;
-        font-size: 2.8vw;
-    }
+  .edits span {
+    font-size: 2.8vw;
+  }
 
-    .edit-comment {
-        height: 5vw;
-        font-size: 2.8vw;
-    }
+  .edit-amount {
+    height: 5vw;
+    font-size: 2.8vw;
+  }
 
+  .edit-comment {
+    height: 5vw;
+    font-size: 2.8vw;
+  }
 }

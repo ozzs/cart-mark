@@ -1,108 +1,107 @@
 .product-row-read {
-    display: flex;
-    background-color: #f5f5f5;
-    padding: 1%;
-    margin-left: 5px;
-    margin-bottom: 10px;
-    border-radius: 0.3rem;
-    width: 96%;
-    word-wrap: break-word;
-    align-items: center;
+  display: flex;
+  background-color: #f5f5f5;
+  padding: 1%;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border-radius: 0.3rem;
+  width: 96%;
+  word-wrap: break-word;
+  align-items: center;
 }
 
-.product-row-read:first-child { 
-    animation: scale-out 0.5s forwards;
+.product-row-read:first-child {
+  animation: scale-out 0.5s forwards;
 }
 
 .output-product {
-    position: relative;
-    width: 20%;
-    text-align: left;
-    margin-right: auto;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 1%;
-    /* border: 1px solid black; */
+  position: relative;
+  width: 20%;
+  text-align: left;
+  margin-right: auto;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .output-department {
-    position: relative;
-    width: 20%;
-    text-align: left;
-    margin-right: auto;
-    font-size: 12px;
-    padding: 1%;
-    /* border: 1px solid black; */
+  position: relative;
+  width: 20%;
+  text-align: left;
+  margin-right: auto;
+  font-size: 12px;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .output-amount {
-    position: relative;
-    width: 15%;
-    text-align: left;
-    margin-right: auto;
-    font-size: 12px;
-    padding: 1%;
-    /* border: 1px solid black; */
+  position: relative;
+  width: 15%;
+  text-align: left;
+  margin-right: auto;
+  font-size: 12px;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .output-comment {
-    position: relative;
-    width: 15%;
-    text-align: left;
-    color: rgb(252, 61, 61);
-    font-size: 12px;
-    margin-right: auto;
-    padding: 1%;
-    /* border: 1px solid black; */
+  position: relative;
+  width: 15%;
+  text-align: left;
+  color: rgb(252, 61, 61);
+  font-size: 12px;
+  margin-right: auto;
+  padding: 1%;
+  /* border: 1px solid black; */
 }
 
 .icons {
-    display: flex;
-    justify-content: space-between;
-    width: 10%;
-    cursor: pointer;
-    font-size: 25px;
-    margin-left: auto;
-    padding-right: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+  cursor: pointer;
+  font-size: 25px;
+  margin-left: auto;
+  padding-right: 5px;
 }
 
 .edit-button:hover {
-    color: forestgreen;
-    transition-duration: 0.2s;
+  color: forestgreen;
+  transition-duration: 0.2s;
 }
 
 .delete-button:hover {
-    color: crimson;
-    transition-duration: 0.2s;
+  color: crimson;
+  transition-duration: 0.2s;
 }
 
 .shop-button {
-    text-align: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 425px) {
-    .output-product {
-        font-size: 3vw;
-        width: 15%;
-        /* border: 1px solid black */
-    }
-    
-    .output-department {
-        font-size: 2.7vw;
-        width: 15%;
-        /* border: 1px solid black */
-    }
+  .output-product {
+    font-size: 3vw;
+    width: 15%;
+    /* border: 1px solid black */
+  }
 
-    .output-amount {
-        width: 20%;
-        font-size: 2.7vw;
-        /* border: 1px solid black; */
-    }
+  .output-department {
+    font-size: 2.7vw;
+    width: 15%;
+    /* border: 1px solid black */
+  }
 
-    .output-comment {
-        width: 15%;
-        font-size: 2.7vw;
-        /* border: 1px solid black; */
-    }
+  .output-amount {
+    width: 20%;
+    font-size: 2.7vw;
+    /* border: 1px solid black; */
+  }
 
+  .output-comment {
+    width: 15%;
+    font-size: 2.7vw;
+    /* border: 1px solid black; */
+  }
 }

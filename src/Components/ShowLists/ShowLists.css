@@ -1,22 +1,22 @@
 .show-lists-title {
-    font-size: 3vw;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1.5%;
+  font-size: 3vw;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5%;
 }
 
 .dates-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .date-display {
-    width: 20%;
-    margin: 1.5%;
-    padding: 1%;
-    border-radius: 0.4rem;
-    background-color: red;
-    color: white;
+  width: 20%;
+  margin: 1.5%;
+  padding: 1%;
+  border-radius: 0.4rem;
+  background-color: red;
+  color: white;
 }

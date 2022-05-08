@@ -11,10 +11,7 @@ function ReadProdRow({
   handleEditClick,
 }) {
   return (
-    <div
-      className="product-row-read"
-      key={index}
-    >
+    <div className="product-row-read" key={index}>
       <div className="output-product"> {product.product} </div>
 
       {allProducts

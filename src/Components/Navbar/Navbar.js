@@ -14,7 +14,8 @@ function Navbar() {
       >
         <NavLink to="/" className="link" activeclassname="active">
           {" "}
-          <FaHome className="home-button" />{" "}
+          {/* <FaHome className="home-button" />{" "} */}
+          Home
         </NavLink>
         <NavLink to="/additem" className="link" activeclassname="active">
           {" "}

@@ -2,7 +2,7 @@
 
 <div align="center"> Auto formatted with Prettier </div>
 
-
+<br />
 
 ![create list](https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
 

@@ -8,7 +8,7 @@
 
 ## What is this and who is it for 🤷‍♀️
 
-I created a shopping list app in React designed to make the shopping experience (from making the list to taking the latest product off the shelf) more convenient.
+I created a React shopping list app designed to make everyone's shopping experience (from making the list to taking the latest product off the shelf) more convenient.
 
 I used Node.js and the simple SQLite database.
 

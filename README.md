@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+<h1 align="center"> Shopping List React App </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center"> Auto formatted with Prettier 🎗️ </div>
+
+<br />
+
+![shopping-list-banner](https://github.com/ozzs/ShoppingList/blob/main/ShoppingListBanner.png)
+
+![homepage-gif](https://github.com/ozzs/ShoppingList/blob/main/Homepage-Gif.gif)
+
+## What is this and who is it for 🤷‍♀️
+
+I created a React shopping list app designed to make everyone's shopping experience (from making the list to taking the latest product off the shelf) more convenient.
+
+I used Node.js and the simple SQLite database.
 
 ## Available Scripts
 

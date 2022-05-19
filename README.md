@@ -2,7 +2,7 @@
 
 Auto formatted with Prettier
 
-![logo]:(https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
+![create list]:(https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
 
 ## Available Scripts
 

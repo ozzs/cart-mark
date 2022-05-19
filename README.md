@@ -1,10 +1,16 @@
 <h1 align="center"> Shopping List React App </h1>
 
-<div align="center"> Auto formatted with Prettier </div>
+<div align="center"> Auto formatted with Prettier 🎗️ </div>
 
 <br />
 
 ![create list](https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
+
+## What is this and who is it for 🤷‍♀️
+
+I created a shopping list app in React designed to make the shopping experience (from making the list to taking the latest product off the shelf) more convenient.
+
+I used Node.js and the simple SQLite database.
 
 ## Available Scripts
 

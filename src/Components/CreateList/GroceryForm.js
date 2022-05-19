@@ -130,7 +130,7 @@ function GroceryForm() {
 
   const closelist = async () => {
     await axios
-      .post("http://localhost:5000/closelist", productList)
+      .post("https://dolphin-app-rg6wm.ondigitalocean.app/createlist", productList)
       .then((response) => {
         console.log("Updated or Added?: ", response.data);
         navigate("/shoppinglist");

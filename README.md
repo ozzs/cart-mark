@@ -1,6 +1,8 @@
 # Shopping List React App
 
-DESCRIPTION
+Auto formatted with Prettier
+
+[logo]:(https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
 
 ## Available Scripts
 

@@ -100,7 +100,7 @@ app.post("/closelist", (req, res) => {
 
         console.log("ID is:", id);
 
-        req.map((product) => {
+        req.body.forEach((product) => {
           db.run(
             "INSERT INTO RELATIONAL(ListID, ProductID, Amount, Comment) VALUES(?, ?, ?, ?)",
             [id.ID, product.id, product.amount, product.comment]

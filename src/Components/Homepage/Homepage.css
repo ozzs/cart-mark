@@ -42,6 +42,8 @@
   font-size: 1.6vw;
   position: relative;
   top: 2vw;
+  opacity: 0;
+  animation: fadeIn 1.5s 1.5s forwards;
 }
 
 .boxes-container {
@@ -63,6 +65,7 @@
   text-align: center;
   animation: slide-boxes 1.5s forwards;
   visibility: hidden;
+  letter-spacing: 1px;
 }
 
 @keyframes slide-boxes {
@@ -112,6 +115,8 @@
   font-size: 1.6vw;
   position: relative;
   top: 7vw;
+  opacity: 0;
+  animation: fadeIn 1s 4s forwards;
 }
 
 .description {
@@ -120,16 +125,27 @@
   margin: auto;
   width: 40%;
   padding: 1rem;
-  font-size: 15px;
+  font-size: 1.6vh;
   color: #33475b;
   text-align: justify;
   line-height: 2em;
   letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeIn 1s 4.5s forwards;
 }
 
 p {
   margin-bottom: 0.3em;
   margin-top: 0.3em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 425px) {
@@ -160,6 +176,13 @@ p {
   }
 
   .reason {
+    top: 12vw;
     font-size: 4vw;
+  }
+
+  .description {
+    top: 10vw;
+    font-size: 1.4vh;
+    width: 70%;
   }
 }

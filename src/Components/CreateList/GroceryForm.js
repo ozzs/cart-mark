@@ -154,7 +154,7 @@ function GroceryForm() {
           {" "}
           Add a new product to the shopping list{" "}
         </div>
-        <form className="grocery-form" onSubmit={handleSubmit}>
+        <form className="grocery-form" onSubmit={handleSubmit} autocomplete="off">
           <Select
             className="products"
             value={selectedProduct}

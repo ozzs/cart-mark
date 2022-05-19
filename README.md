@@ -4,7 +4,7 @@
 
 <br />
 
-![create list](https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
+![shopping list banner]([https://github.com/ozzs/ShoppingList/blob/main/create-list.png](https://github.com/ozzs/ShoppingList/blob/main/ShoppingListBanner.png))
 
 ![homepage-gif](https://github.com/ozzs/ShoppingList/blob/main/Homepage-Gif.gif)
 

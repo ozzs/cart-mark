@@ -2,6 +2,8 @@
 
 <div align="center"> Auto formatted with Prettier </div>
 
+
+
 ![create list](https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
 
 ## Available Scripts

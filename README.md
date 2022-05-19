@@ -1,6 +1,6 @@
-# Shopping List React App
+<h1 align="center"> Shopping List React App </h1>
 
-Auto formatted with Prettier
+<div align="center"> Auto formatted with Prettier </div>
 
 ![create list](https://github.com/ozzs/ShoppingList/blob/main/create-list.png)
 

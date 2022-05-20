@@ -8,7 +8,7 @@ function ShowLists() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchDates = async () => {
-    const response = await axios.get("http://localhost:5000/showlists");
+    const response = await axios.get("/showlists");
     setDates(response.data);
     setIsLoading(false);
   };

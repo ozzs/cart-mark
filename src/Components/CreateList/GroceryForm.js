@@ -14,7 +14,7 @@ function GroceryForm() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchAllProducts = async () => {
-    const response = await axios.get("http://localhost:5000/createlist");
+    const response = await axios.get("/createlist");
     setAllProducts(response.data);
     setOptions(
       response.data.map((product) => ({
@@ -130,7 +130,7 @@ function GroceryForm() {
 
   const closelist = async () => {
     await axios
-      .post("http://localhost:5000/closelist", productList)
+      .post("/closelist", productList)
       .then((response) => {
         console.log("Updated or Added?: ", response.data);
         navigate("/shoppinglist");

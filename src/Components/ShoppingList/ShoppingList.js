@@ -13,7 +13,7 @@ function ShoppingList(props) {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchShoppingList = async () => {
-    const response = await axios.get("http://localhost:5000/shoppinglist");
+    const response = await axios.get("/shoppinglist");
     setShoppingList(response.data);
     setIsLoading(false);
   };
@@ -51,7 +51,7 @@ function ShoppingList(props) {
 
   const handleFinish = () => {
     axios
-      .post("http://localhost:5000/finishshopping")
+      .post("/finishshopping")
       .then((response) => {
         console.log(response.status);
       })

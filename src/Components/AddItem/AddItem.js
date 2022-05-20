@@ -66,7 +66,7 @@ function AddItem() {
     setInputs({ product: "", department: "", units: "" });
 
     axios
-      .post("http://localhost:5000/additem", inputsDetails)
+      .post("/additem", inputsDetails)
       .then((response) => {
         console.log(response.status);
         if (response.data.inserted) {

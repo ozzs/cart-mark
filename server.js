@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require("path");
 const bodyParser = require("body-parser");
 const { Dvr } = require("@mui/icons-material");
 const port = 5000;
@@ -34,9 +35,7 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("HELLO WORLD");
-});
+app.use(express.static(path.join(__dirname,"build")));
 
 app.get("/createlist", (req, res) => {
   db.all("SELECT * FROM PRODUCTS ORDER BY name", [], (err, products) => {

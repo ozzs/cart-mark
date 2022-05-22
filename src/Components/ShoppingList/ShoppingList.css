@@ -9,6 +9,8 @@
   align-items: center;
   justify-content: center;
   animation: scale-container 0.7s;
+  margin-top: 5rem;
+  user-select: none;
 }
 
 @keyframes scale-container {

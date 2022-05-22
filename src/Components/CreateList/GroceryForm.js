@@ -154,7 +154,7 @@ function GroceryForm() {
           {" "}
           Add a new product to the shopping list{" "}
         </div>
-        <form className="grocery-form" onSubmit={handleSubmit} autocomplete="off">
+        <form className="grocery-form" onSubmit={handleSubmit} autoComplete="off">
           <Select
             className="products"
             value={selectedProduct}
@@ -208,7 +208,7 @@ function GroceryForm() {
           </span>
         </div>
       </div>
-      <div className="block">
+      <div className="shopping-list-block">
         <h3>Your shopping list</h3>
         {productList.map((product, index) =>
           editProdId === product.id ? (

@@ -10,10 +10,6 @@
   align-items: center;
 }
 
-.product-row-read:first-child {
-  animation: scale-out 0.5s forwards;
-}
-
 .output-product {
   position: relative;
   width: 20%;

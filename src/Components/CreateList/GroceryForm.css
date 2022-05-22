@@ -1,14 +1,3 @@
-body {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-h1,
-h2,
-h3 {
-  text-align: center;
-}
-
 .block {
   background-color: #e0e0e0;
   padding: 0.5%;
@@ -16,6 +5,13 @@ h3 {
   border-radius: 0.5rem;
   text-align: center;
   word-wrap: break-word;
+  margin-top: 5rem;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
 }
 
 .explanation {
@@ -104,15 +100,14 @@ button {
   margin: 0.8rem;
 }
 
-/* .check { 
-  animation: scale-out 0.5s forwards; 
-  background-color: yellowgreen;
+.shopping-list-block {
+  background-color: #e0e0e0;
+  padding: 0.5%;
+  margin: 10px 30% 10px 30%;
+  border-radius: 0.5rem;
+  text-align: center;
+  word-wrap: break-word;
 }
-
-@keyframes scale-out {
-  from { transform: scale(5%, 5%); }
-  to { transform: scale(100%, 100%); }
-} */
 
 .shop-button {
   text-align: center;
@@ -133,7 +128,7 @@ button {
 @media only screen and (max-width: 768px) {
   .block {
     background-color: #e0e0e0;
-    margin: 10px 20px 10px 20px;
+    margin: 5rem 20px 10px 20px;
   }
 
   .explanation {
@@ -160,5 +155,10 @@ button {
 
   .add-product-button {
     font-size: 4vw;
+  }
+
+  .shopping-list-block {
+    width: 90%;
+    margin: 0 30px 10px 20px;
   }
 }

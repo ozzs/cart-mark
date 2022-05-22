@@ -1,4 +1,3 @@
-import React from "react";
 import ReactPlayer from "react-player";
 import { AiFillFileAdd } from "react-icons/ai";
 import { FaListUl, FaShoppingCart } from "react-icons/fa";
@@ -7,32 +6,25 @@ import "./Homepage.css";
 import myVideo from "./supermarket-video.mp4";
 
 function Homepage() {
+
   return (
     <>
       <ReactPlayer
         className="react-player"
         url={myVideo}
-        playing="true"
-        loop="true"
+        playing
+        loop
         width="100%"
         height="100%"
-        style={{ transform: "rotateY(180deg)" }}
+        style={{marginTop: "3rem"}}
       />
 
       <h1 className="homepage-title"> Shopping List </h1>
-      <h2 className="homepage-desc"> A new and easy way to shop</h2>
+      <h2 className="homepage-desc"> A new and <br /> easy way to shop</h2>
 
-      {/* <div className="banner-container">
-        <img
-          src={homepage_banner}
-          alt="homepage_banner"
-          className="homepage_banner"
-        />
-      </div> */}
-
-      <h2 className="page-desc"> Pages Description </h2>
+      <h2 className="page-desc" data-aos="fade-up"> Pages Description </h2>
       <div className="boxes-container">
-        <div className="box">
+        <div className="box" data-aos="zoom-in" data-aos-delay="200">
           <AiFillFileAdd className="icon" /> <br />
           <div className="title"> Add Item </div> <hr />
           <div className="page-details">
@@ -42,7 +34,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="box">
+        <div className="box" data-aos="zoom-in" data-aos-delay="500">
           <FaListUl className="icon" />
           <div className="title"> Create List </div> <hr />
           <div className="page-details">
@@ -51,7 +43,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="box">
+        <div className="box" data-aos="zoom-in" data-aos-delay="800">
           <FaShoppingCart className="icon" />
           <div className="title"> Go Shopping! </div> <hr />
           <div className="page-details">
@@ -62,7 +54,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="box">
+        <div className="box" data-aos="zoom-in" data-aos-delay="1100">
           <BiShow className="icon" />
           <div className="title"> Show Lists </div> <hr />
           <div className="page-details">
@@ -72,8 +64,8 @@ function Homepage() {
         </div>
       </div>
 
-      <h2 className="reason"> Why do I even need it? </h2>
-      <div className="description">
+      <h2 className="reason" data-aos="fade-up"> Why do I even need it? </h2>
+      <div className="description" data-aos="fade-right">
         <p>
           {" "}
           Have you ever felt tired of making a careless shopping list? Scribble

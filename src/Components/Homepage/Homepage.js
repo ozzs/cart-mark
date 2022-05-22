@@ -1,20 +1,34 @@
 import React from "react";
-import homepage_banner from "./homepage_banner.png";
+import ReactPlayer from "react-player";
 import { AiFillFileAdd } from "react-icons/ai";
 import { FaListUl, FaShoppingCart } from "react-icons/fa";
 import { BiShow } from "react-icons/bi";
 import "./Homepage.css";
+import myVideo from "./supermarket-video.mp4";
 
 function Homepage() {
   return (
     <>
-      <div className="banner-container">
+      <ReactPlayer
+        className="react-player"
+        url={myVideo}
+        playing="true"
+        loop="true"
+        width="100%"
+        height="100%"
+        style={{ transform: "rotateY(180deg)" }}
+      />
+
+      <h1 className="homepage-title"> Shopping List </h1>
+      <h2 className="homepage-desc"> A new and easy way to shop</h2>
+
+      {/* <div className="banner-container">
         <img
           src={homepage_banner}
           alt="homepage_banner"
           className="homepage_banner"
         />
-      </div>
+      </div> */}
 
       <h2 className="page-desc"> Pages Description </h2>
       <div className="boxes-container">
@@ -60,11 +74,41 @@ function Homepage() {
 
       <h2 className="reason"> Why do I even need it? </h2>
       <div className="description">
-        <p> Have you ever felt tired of making a careless shopping list? Scribble a few groceries on a note and then lose it? Or maybe get a shopping list from your wife and not understand what is written in it and what I am supposed to bring? Wait, did she want almond milk or soy milk? </p> <br />
-        <p> As a computer science student who rents an apartment with a partner and does shopping once or twice a week, I was looking for an idea for a project that would help me solve the problems mentioned and also acquire new tools that would expand my knowledge. </p> <br />
-        <p> With this website, you can create such a shopping list, so that you do not have to deal with most of the issues raised earlier. The application is structured in such a way that it can be used on a computer or mobile devices. </p> <br />
-        <p> You would be able to create a shopping list from a product catalog (which you also make yourself), edit and add comments to it. Once the list is ready you can open it and mark exactly what has been taken from the shelf and what has not. At the end of the purchase the list will be saved and you can view it again later. </p> <br />
-        And most importantly, you will no longer be confused with almond milk and soy milk!
+        <p>
+          {" "}
+          Have you ever felt tired of making a careless shopping list? Scribble
+          a few groceries on a note and then lose it? Or maybe get a shopping
+          list from your wife and not understand what is written in it and what
+          I am supposed to bring? Wait, did she want almond milk or soy milk?{" "}
+        </p>{" "}
+        <br />
+        <p>
+          {" "}
+          As a computer science student who rents an apartment with a partner
+          and does shopping once or twice a week, I was looking for an idea for
+          a project that would help me solve the problems mentioned and also
+          acquire new tools that would expand my knowledge.{" "}
+        </p>{" "}
+        <br />
+        <p>
+          {" "}
+          With this website, you can create such a shopping list, so that you do
+          not have to deal with most of the issues raised earlier. The
+          application is structured in such a way that it can be used on a
+          computer or mobile devices.{" "}
+        </p>{" "}
+        <br />
+        <p>
+          {" "}
+          You would be able to create a shopping list from a product catalog
+          (which you also make yourself), edit and add comments to it. Once the
+          list is ready you can open it and mark exactly what has been taken
+          from the shelf and what has not. At the end of the purchase the list
+          will be saved and you can view it again later.{" "}
+        </p>{" "}
+        <br />
+        And most importantly, you will no longer be confused with almond milk
+        and soy milk!
       </div>
     </>
   );

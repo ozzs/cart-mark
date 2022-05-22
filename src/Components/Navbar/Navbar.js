@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaBars, FaHome } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import "./Navbar.css";
 
 function Navbar() {
@@ -14,7 +14,6 @@ function Navbar() {
       >
         <NavLink to="/" className="link" activeclassname="active">
           {" "}
-          {/* <FaHome className="home-button" />{" "} */}
           Home
         </NavLink>
         <NavLink to="/additem" className="link" activeclassname="active">

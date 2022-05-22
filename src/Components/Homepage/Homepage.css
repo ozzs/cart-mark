@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;600&family=Lato:wght@100&display=swap');
+
+.homepage-title {
+  font-family: 'Encode Sans', sans-serif;
+  position: absolute;
+  color: white;
+  top: 5vh;
+  left: 5vw;
+  font-size: 6vw;
+  text-shadow: 2px 2px 4px #000000;
+  letter-spacing: 0.3rem;
+}
+
+.homepage-desc {
+  font-family: 'Encode Sans', sans-serif;
+  position: absolute;
+  color: black;
+  top: 26vh;
+  left: 5vw;
+  font-size: 5vw;
+  font-weight: 400;
+}
+
 .banner-container {
   position: relative;
   width: 100%;
@@ -148,7 +171,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
   .boxes-container {
     display: grid;
     grid-template-columns: auto auto;

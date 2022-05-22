@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const bodyParser = require("body-parser");
 const { Dvr } = require("@mui/icons-material");
-const port = 5000;
+const port = 8080;
 
 const sqlite3 = require("sqlite3").verbose();
 
@@ -35,7 +35,7 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(__dirname,"build")));
+app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/createlist", (req, res) => {
   db.all("SELECT * FROM PRODUCTS ORDER BY name", [], (err, products) => {

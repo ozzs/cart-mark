@@ -10,6 +10,11 @@ import ShowLists from "./Components/ShowLists/ShowLists";
 function App() {
   return (
     <>
+      <div
+        style={{
+          backgroundImage: "",
+        }}
+      ></div>
       <Router>
         <Navbar />
         <Routes>

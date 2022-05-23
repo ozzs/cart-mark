@@ -8,6 +8,17 @@
   width: 96%;
   word-wrap: break-word;
   align-items: center;
+  transition: 0.2s;
+  animation: scale 0.5s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 .output-product {
@@ -59,7 +70,8 @@
   cursor: pointer;
   font-size: 25px;
   margin-left: auto;
-  padding-right: 5px;
+  margin-right: 5px;
+  grid-area: icons;
 }
 
 .edit-button:hover {
@@ -77,27 +89,52 @@
 }
 
 @media only screen and (max-width: 425px) {
+  .product-row-read {
+    width: 95%;
+    display: grid;
+    grid-template-areas:
+      "product product department department amount amount icons"
+      "comment comment comment comment comment comment icons";
+    padding: 0.5vh 0 0.5vh 1vh;
+  }
+
   .output-product {
     font-size: 3vw;
-    width: 15%;
+    width: fit-content;
+    grid-area: product;
     /* border: 1px solid black */
   }
 
   .output-department {
-    font-size: 2.7vw;
-    width: 15%;
-    /* border: 1px solid black */
+    font-size: 2.5vw;
+    width: fit-content;
+    grid-area: department;
+    font-weight: bold;
+    color: rgb(139, 139, 139);
+    padding: 1% 0 1% 1%;
+    /* border: 1px solid black; */
   }
 
   .output-amount {
-    width: 20%;
+    width: fit-content;
     font-size: 2.7vw;
+    grid-area: amount;
     /* border: 1px solid black; */
   }
 
   .output-comment {
-    width: 15%;
+    width: 100%;
     font-size: 2.7vw;
+    grid-area: comment;
+    /* border: 1px solid black; */
+  }
+
+  .icons {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 18px;
+    margin-right: 1.5vh;
+    width: fit-content;
     /* border: 1px solid black; */
   }
 }

@@ -6,7 +6,6 @@ import "./Homepage.css";
 import myVideo from "./supermarket-video.mp4";
 
 function Homepage() {
-
   return (
     <>
       <ReactPlayer
@@ -16,20 +15,26 @@ function Homepage() {
         loop
         width="100%"
         height="100%"
-        style={{marginTop: "3rem"}}
+        style={{ marginTop: "3rem" }}
       />
 
       <h1 className="homepage-title"> Shopping List </h1>
-      <h2 className="homepage-desc"> A new and <br /> easy way to shop</h2>
+      <h2 className="homepage-desc">
+        {" "}
+        A new and <br /> easy way to shop
+      </h2>
 
-      <h2 className="page-desc" data-aos="fade-up"> Pages Description </h2>
+      <h2 className="page-desc" data-aos="fade-up">
+        {" "}
+        Pages Description{" "}
+      </h2>
       <div className="boxes-container">
         <div className="box" data-aos="zoom-in" data-aos-delay="200">
           <AiFillFileAdd className="icon" /> <br />
           <div className="title"> Add Item </div> <hr />
           <div className="page-details">
             {" "}
-            Set up new items in your personal database so you can add them to
+            Set up new items in your personal catalog so you can add them to
             your shopping list.{" "}
           </div>
         </div>
@@ -64,7 +69,10 @@ function Homepage() {
         </div>
       </div>
 
-      <h2 className="reason" data-aos="fade-up"> Why do I even need it? </h2>
+      <h2 className="reason" data-aos="fade-up">
+        {" "}
+        Why do I even need it?{" "}
+      </h2>
       <div className="description" data-aos="fade-right">
         <p>
           {" "}

@@ -1,7 +1,8 @@
 .block {
   background-color: #e0e0e0;
   padding: 0.5%;
-  margin: 10px 30% 10px 30%;
+  width: 35%;
+  margin: auto;
   border-radius: 0.5rem;
   text-align: center;
   word-wrap: break-word;
@@ -15,48 +16,63 @@ h3 {
 }
 
 .explanation {
-  width: 50%;
-  border-bottom: 1px solid rgb(146, 144, 144);
-  font-size: 14px;
-  color: rgb(146, 144, 144);
-  text-align: left;
-  margin: 0 auto;
+  width: 90%;
+  font-size: 1.5vh;
+  color: rgb(139, 139, 139);
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
   box-sizing: border-box;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 1.5rem;
 }
 
-.input-product {
-  width: 50%;
-  height: 40px;
-  font-size: large;
-  box-sizing: border-box;
-  padding-left: 7px;
+.item-input-title,
+.amount-input-title,
+.comment-input-title {
+  text-align: left;
+  width: 90%;
+  display: flex;
+  margin: auto;
+  font-size: 1.5vh;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
 }
 
 .products {
-  width: 50%;
+  width: 90%;
   text-align: left;
   display: inline-block;
   margin: 1%;
+  font-size: 1.7vh;
+  margin-bottom: 1rem;
 }
 
 .amount-elements {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 90%;
   margin: auto;
+  margin-bottom: 1rem;
+  margin-top: 1%;
 }
 
 .input-amount {
-  width: 50%;
-  height: 25px;
+  width: 30%;
+  height: 40px;
+  font-size: 1.7vh;
+  padding: 2px 10px;
+  border-radius: 10px;
   box-sizing: border-box;
-  padding-left: 7px;
+  border: 1px solid #d9d9d9;
+}
+
+.input-amount:focus {
+  outline: none !important;
+  border: 2px solid #2684ff;
 }
 
 .show-units {
-  font-size: 70%;
+  font-size: 1.7vh;
   font-weight: bold;
   align-items: center;
   display: flex;
@@ -64,11 +80,20 @@ h3 {
 }
 
 .input-comment {
-  width: 50%;
-  height: 25px;
+  width: 90%;
+  height: 40px;
+  font-size: 1.7vh;
+  padding: 2px 10px;
+  border-radius: 10px;
   box-sizing: border-box;
-  padding-left: 7px;
+  border: 1px solid #d9d9d9;
   margin: 1%;
+  margin-bottom: 1.5rem;
+}
+
+.input-comment:focus {
+  outline: none !important;
+  border: 2px solid #2684ff;
 }
 
 button {
@@ -83,19 +108,21 @@ button {
 
 .add-product-button {
   width: 50%;
-  background-color: transparent;
-  border-color: rgb(1, 134, 61);
-  border-radius: 0.5rem;
-  color: rgb(1, 134, 61);
+  background-color: rgb(1, 134, 61);
+  border-radius: 6px;
+  border-color: transparent;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 17px;
 }
 
 .add-product-button:hover {
-  background-color: rgb(219, 250, 219);
-  transition-duration: 0.4s;
+  background-color: rgb(1, 167, 76);
+  transition-duration: 0.3s;
 }
 
 .notice {
-  font-size: 12px;
+  font-size: 1.4vh;
   text-align: left;
   margin: 0.8rem;
 }
@@ -103,7 +130,10 @@ button {
 .shopping-list-block {
   background-color: #e0e0e0;
   padding: 0.5%;
-  margin: 10px 30% 10px 30%;
+  width: 35%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border-radius: 0.5rem;
   text-align: center;
   word-wrap: break-word;
@@ -128,7 +158,9 @@ button {
 @media only screen and (max-width: 768px) {
   .block {
     background-color: #e0e0e0;
-    margin: 5rem 20px 10px 20px;
+    width: 90%;
+    margin: auto;
+    margin-top: 4rem;
   }
 
   .explanation {
@@ -159,6 +191,5 @@ button {
 
   .shopping-list-block {
     width: 90%;
-    margin: 0 30px 10px 20px;
   }
 }

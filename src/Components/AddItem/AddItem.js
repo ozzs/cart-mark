@@ -85,7 +85,7 @@ function AddItem() {
   const alertInserted = () => {
     return (
       <div className="alertInserted">
-        <BsCheck2Circle className="icon" />
+        <BsCheck2Circle className="success-icon" />
         <div className="alert-text">
           <span className="alert-title"> Success! </span> <br />
           <span className="alert-added"> Item added successfully... </span>{" "}
@@ -102,7 +102,7 @@ function AddItem() {
   const alertNotInserted = () => {
     return (
       <div className="alertNotInserted">
-        <FaExclamationCircle className="icon" />
+        <FaExclamationCircle className="fail-icon" />
         <div className="alert-text">
           <span className="alert-title"> Oops! </span> <br />
           Something went wrong... <br />
@@ -121,9 +121,11 @@ function AddItem() {
         <h2>Add Item</h2>
         <div className="add-item-explanation">
           {" "}
-          Add a new item to the database{" "}
+          Add new items to the catalog{" "}
         </div>
+        <hr className="divider" noshade="" />
         <form className="addItem-form" onSubmit={handleSubmit}>
+          <span className="product-input-title"> Product </span>
           <input
             type="text"
             className="input-product"
@@ -131,8 +133,10 @@ function AddItem() {
             name="product"
             value={inputs.product}
             onChange={handleChange}
+            autoComplete="off"
           />{" "}
           <br />
+          <span className="department-input-title"> Department </span>
           <Select
             className="departments"
             value={selectedDepartment}
@@ -140,8 +144,15 @@ function AddItem() {
             onChange={setSelectedDepartment}
             options={departments}
             name="department"
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                borderRadius: "10px",
+              }),
+            }}
           />{" "}
           <br />
+          <span className="packeging-input-title"> Packeging </span>
           <Select
             className="input-packeging"
             value={selectedPackeging}
@@ -149,6 +160,12 @@ function AddItem() {
             onChange={setSelectedPackaging}
             options={units}
             name="packeging"
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                borderRadius: "10px",
+              }),
+            }}
           />
           <button className="add-item-button"> Add Item </button>
         </form>

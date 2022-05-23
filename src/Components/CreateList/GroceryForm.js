@@ -58,8 +58,11 @@ function GroceryForm() {
       comment: inputs.comment,
     };
 
-    setProductList([inputsDetails, ...productList]);
-    console.log("productlist:", ...productList, inputsDetails);
+    if (productList.some((e) => e.id === inputsDetails.id)) return;
+
+    setProductList([...productList, inputsDetails]);
+
+    console.log("productlist:", inputsDetails, ...productList);
   };
 
   const editProduct = (e) => {
@@ -154,16 +157,29 @@ function GroceryForm() {
           {" "}
           Add a new product to the shopping list{" "}
         </div>
-        <form className="grocery-form" onSubmit={handleSubmit} autoComplete="off">
+        <hr className="divider" noshade="" />
+        <form
+          className="grocery-form"
+          onSubmit={handleSubmit}
+          autoComplete="off"
+        >
+          <span className="item-input-title"> Item </span>
           <Select
             className="products"
             value={selectedProduct}
-            placeholder="Enter item..."
+            placeholder="Choose an item..."
             onChange={setSelectedProduct}
             options={options}
             name="product"
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                borderRadius: "10px",
+              }),
+            }}
           />{" "}
           <br />
+          <span className="amount-input-title"> Amount </span>
           <div className="amount-elements">
             <input
               type="text"
@@ -173,7 +189,6 @@ function GroceryForm() {
               value={inputs.amount}
               onChange={handleChange}
             />
-
             {selectedProduct ? (
               allProducts
                 .filter((prod) => prod.name === selectedProduct.label)
@@ -188,6 +203,7 @@ function GroceryForm() {
               <div className="show-units"> (Units) </div>
             )}
           </div>
+          <span className="comment-input-title"> Comment </span>
           <input
             type="text"
             className="input-comment"

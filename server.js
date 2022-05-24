@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 const path = require("path");
 const bodyParser = require("body-parser");
-const { Dvr } = require("@mui/icons-material");
 const port = 8080;
 
 const sqlite3 = require("sqlite3").verbose();
@@ -20,7 +19,6 @@ const db = new sqlite3.Database(
   sqlite3.OPEN_READWRITE,
   (err) => {
     logIfError(err);
-
     console.log("connection with database successful");
   }
 );
@@ -36,6 +34,10 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname, "build")));
+
+app.get("/", (req, res) => {
+  res.send("HOMEPAGE");
+});
 
 app.get("/createlist", (req, res) => {
   db.all("SELECT * FROM PRODUCTS ORDER BY name", [], (err, products) => {
@@ -63,19 +65,35 @@ app.get("/showlists", (req, res) => {
   );
 });
 
+app.get("/additem", (req, res) => {
+  res.send("additem");
+});
+
 app.post("/additem", (req, res) => {
-  db.run("INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)", [
-    req.body.product,
-    req.body.department,
-    req.body.units,
-  ]),
-    (err) => {
-      if (err) {
+  console.log(req.body.product);
+  db.get(
+    "SELECT 1 FROM PRODUCTS WHERE name = ?",
+    [req.body.product],
+    (err, check) => {
+      logIfError(err);
+      if (check === undefined) {
+        console.log("NO PRODUCT EXISTS!");
+        db.run(
+          "INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
+          [req.body.product, req.body.department, req.body.units]
+        ),
+          (err) => {
+            if (err) {
+              logIfError();
+            }
+          };
+        res.send({ inserted: true });
+      } else {
+        console.log("PRODUCT EXISTS!");
         res.send({ inserted: false });
-        return console.error(err.message);
       }
-    };
-  res.send({ inserted: true });
+    }
+  );
 });
 
 app.get("/closelist", (req, res) => {
@@ -159,4 +177,45 @@ app.post("/finishshopping", (req, res) => {
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
+  db.run(
+    "CREATE TABLE IF NOT EXISTS PRODUCTS ( \
+    ID	INTEGER NOT NULL UNIQUE, \
+    name	TEXT NOT NULL, \
+    department	TEXT NOT NULL, \
+    units	TEXT NOT NULL, \
+    PRIMARY KEY(ID AUTOINCREMENT) \
+  )"
+  ),
+    (err) => {
+      logIfError(err);
+      console.log("Table PRODUCTS Created!");
+    };
+
+  db.run(
+    "CREATE TABLE IF NOT EXISTS SHOPPING_LISTS ( \
+      ID	INTEGER NOT NULL UNIQUE, \
+      Date	TEXT NOT NULL, \
+      Status	INTEGER NOT NULL, \
+      PRIMARY KEY(ID AUTOINCREMENT) \
+    )"
+  ),
+    (err) => {
+      logIfError(err);
+      console.log("Table SHOPPING_LISTS Created!");
+    };
+
+  db.run(
+    "CREATE TABLE IF NOT EXISTS RELATIONAL ( \
+      ListID	INTEGER NOT NULL, \
+      ProductID	INTEGER NOT NULL, \
+      Amount	INTEGER NOT NULL, \
+      Comment	TEXT NOT NULL, \
+      FOREIGN KEY(ProductID) REFERENCES PRODUCTS(ID), \
+      FOREIGN KEY(ListID) REFERENCES SHOPPING_LISTS(ID) \
+    )"
+  ),
+    (err) => {
+      logIfError(err);
+      console.log("Table RELATIONAL Created!");
+    };
 });

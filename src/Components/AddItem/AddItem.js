@@ -44,7 +44,7 @@ function AddItem() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
-    console.log(inputs);
+    //console.log(inputs);
   };
 
   const handleSubmit = (e) => {
@@ -68,17 +68,15 @@ function AddItem() {
     axios
       .post("/additem", inputsDetails)
       .then((response) => {
-        console.log(response.status);
         if (response.data.inserted) {
-          setInserted(true);
           setNotInserted(false);
-        } else {
-          setInserted(false);
-          setNotInserted(true);
+          setInserted(true);
         }
       })
       .catch((error) => {
         console.log(error, error.response);
+        setInserted(false);
+        setNotInserted(true);
       });
   };
 
@@ -123,7 +121,7 @@ function AddItem() {
           {" "}
           Add new items to the catalog{" "}
         </div>
-        <hr className="divider" noshade="" />
+        {/* <hr className="divider" noshade="" /> */}
         <form className="addItem-form" onSubmit={handleSubmit}>
           <span className="product-input-title"> Product </span>
           <input

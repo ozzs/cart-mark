@@ -13,65 +13,73 @@ function EditProdRow({
   removeProduct,
 }) {
   return (
-    <div className="product-row-edit" key={index}>
-      <div className="outputs-edit">
-        <div className="output-product"> {editInputs.product} </div>
+    <>
+      <div className="product-row-edit" key={index}>
+        <div className="product-dets-edit">
+          <div className="first-row-edit">
+            <div className="output-product-edit"> {editInputs.product} </div>
 
-        {allProducts
-          .filter((prod) => prod.name === product.product)
-          .map((filteredProd, index) => {
-            return (
-              <div className="output-department" key={index}>
-                {filteredProd.department}
-              </div>
-            );
-          })}
+            {allProducts
+              .filter((prod) => prod.name === product.product)
+              .map((filteredProd, index) => {
+                return (
+                  <div className="output-department-edit" key={index}>
+                    ({filteredProd.department})
+                  </div>
+                );
+              })}
+          </div>
 
-        {allProducts
-          .filter((prod) => prod.name === product.product)
-          .map((filteredProd, index) => {
-            return (
-              <div className="output-units" key={index}>
-                {filteredProd.units}
-              </div>
-            );
-          })}
-      </div>
+          <div className="amount-edit">
+            <div className="amo">
+              Amount (
+              {allProducts
+                .filter((prod) => prod.name === product.product)
+                .map((filteredProd, index) => {
+                  return (
+                    <div className="output-units" key={index}>
+                      {filteredProd.units}
+                    </div>
+                  );
+                })}
+              ):
+            </div>
+            <input
+              type="text"
+              className="input-edit-amount"
+              placeholder="Edit amount..."
+              name="amount"
+              value={editInputs.amount}
+              onChange={editProduct}
+            />
+          </div>
 
-      <hr />
-      <div className="edits">
-        <span>amount:</span>
-        <input
-          type="text"
-          className="edit-amount"
-          placeholder="Edit amount..."
-          name="amount"
-          value={editInputs.amount}
-          onChange={editProduct}
-        />
-        <span>comment:</span>
-        <input
-          type="text"
-          className="edit-comment"
-          placeholder="Edit comment..."
-          name="comment"
-          value={editInputs.comment}
-          onChange={editProduct}
-        />
+          <div className="comment-edit">
+            <div className="com">comment:</div>
+            <input
+              type="text"
+              className="input-edit-comment"
+              placeholder="Edit comment..."
+              name="comment"
+              value={editInputs.comment}
+              onChange={editProduct}
+            />
+          </div>
+        </div>
+        <div className="icons-edit">
+          <GiSaveArrow
+            className="edit-button"
+            title="save edit"
+            onClick={(e) => handleEditSubmit(e)}
+          />
+          <AiFillDelete
+            className="delete-button"
+            title="delete"
+            onClick={() => removeProduct(product.id)}
+          />
+        </div>
       </div>
-      <div className="icons-edit">
-        <GiSaveArrow
-          className="edit-button"
-          title="save edit"
-          onClick={(e) => handleEditSubmit(e)}
-        />
-        <AiFillDelete
-          className="delete-button"
-          title="delete"
-          onClick={() => removeProduct(product.id)}
-        />
-      </div>
-    </div>
+    </>
   );
 }
 

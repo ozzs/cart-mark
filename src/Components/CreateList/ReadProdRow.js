@@ -11,44 +11,51 @@ function ReadProdRow({
   handleEditClick,
 }) {
   return (
-    <div className="product-row-read" key={index}>
-      <div className="output-product"> {product.product} </div>
+    <>
+      <div className="product-row-read" key={index}>
+        <div className="product-dets-read">
+          <div className="first-row-read">
+            <div className="output-product"> {product.product} </div>
+            {allProducts
+              .filter((prod) => prod.name === product.product)
+              .map((filteredProd, index) => {
+                return (
+                  <div className="output-department" key={index}>
+                    ({filteredProd.department})
+                  </div>
+                );
+              })}
+          </div>
 
-      {allProducts
-        .filter((prod) => prod.name === product.product)
-        .map((filteredProd, index) => {
-          return (
-            <div className="output-department" key={index}>
-              {filteredProd.department}
-            </div>
-          );
-        })}
+          {allProducts
+            .filter((prod) => prod.name === product.product)
+            .map((filteredProd, index) => {
+              return (
+                <div className="output-amount" key={index}>
+                  {product.amount} {filteredProd.units}
+                </div>
+              );
+            })}
 
-      {allProducts
-        .filter((prod) => prod.name === product.product)
-        .map((filteredProd, index) => {
-          return (
-            <div className="output-amount" key={index}>
-              {product.amount} {filteredProd.units}
-            </div>
-          );
-        })}
+          {product.comment ? (
+            <div className="output-comment"> {product.comment} </div>
+          ) : null}
+        </div>
 
-      <div className="output-comment"> {product.comment} </div>
-
-      <div className="icons">
-        <FiEdit
-          className="edit-button"
-          title="edit"
-          onClick={(e) => handleEditClick(e, product)}
-        />
-        <AiFillDelete
-          className="delete-button"
-          title="delete"
-          onClick={() => removeProduct(product.id)}
-        />
+        <div className="icons-read">
+          <FiEdit
+            className="edit-button"
+            title="edit"
+            onClick={(e) => handleEditClick(e, product)}
+          />
+          <AiFillDelete
+            className="delete-button"
+            title="delete"
+            onClick={() => removeProduct(product.id)}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

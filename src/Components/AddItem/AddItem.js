@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import axios from "axios";
-import { BsCheck2Circle } from "react-icons/bs";
-import { AiOutlineClose } from "react-icons/ai";
-import { FaExclamationCircle } from "react-icons/fa";
+import InsertedModal from "./InsertedModal";
+import NotInsertedModal from "./NotInsertedModal";
+import ExistsModal from "./ExistsModal";
 import "./AddItem.css";
 
 const departments = [
@@ -40,6 +40,7 @@ function AddItem() {
   const [selectedPackeging, setSelectedPackaging] = useState(null);
   const [inserted, setInserted] = useState(false);
   const [notInserted, setNotInserted] = useState(false);
+  const [exists, setExists] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,49 +69,23 @@ function AddItem() {
     axios
       .post("/additem", inputsDetails)
       .then((response) => {
-        if (response.data.inserted) {
+        if (response.data.status === "inserted") {
           setNotInserted(false);
+          setExists(false);
           setInserted(true);
+        } else if (response.data.status === "wrong") {
+          setInserted(false);
+          setExists(false);
+          setNotInserted(true);
+        } else if (response.data.status === "exists") {
+          setInserted(false);
+          setNotInserted(false);
+          setExists(true);
         }
       })
       .catch((error) => {
         console.log(error, error.response);
-        setInserted(false);
-        setNotInserted(true);
       });
-  };
-
-  const alertInserted = () => {
-    return (
-      <div className="alertInserted">
-        <BsCheck2Circle className="success-icon" />
-        <div className="alert-text">
-          <span className="alert-title"> Success! </span> <br />
-          <span className="alert-added"> Item added successfully... </span>{" "}
-          <br />
-        </div>
-        <AiOutlineClose
-          className="close-alert-button-success"
-          onClick={() => setInserted(false)}
-        />
-      </div>
-    );
-  };
-
-  const alertNotInserted = () => {
-    return (
-      <div className="alertNotInserted">
-        <FaExclamationCircle className="fail-icon" />
-        <div className="alert-text">
-          <span className="alert-title"> Oops! </span> <br />
-          Something went wrong... <br />
-        </div>
-        <AiOutlineClose
-          className="close-alert-button-oops"
-          onClick={() => setNotInserted(false)}
-        />
-      </div>
-    );
   };
 
   return (
@@ -121,7 +96,7 @@ function AddItem() {
           {" "}
           Add new items to the catalog{" "}
         </div>
-        {/* <hr className="divider" noshade="" /> */}
+        <hr className="divider" noshade="" />
         <form className="addItem-form" onSubmit={handleSubmit}>
           <span className="product-input-title"> Product </span>
           <input
@@ -169,8 +144,11 @@ function AddItem() {
         </form>
       </div>
 
-      {inserted ? alertInserted() : null}
-      {notInserted ? alertNotInserted() : null}
+      {inserted ? <InsertedModal setInserted={setInserted} /> : null}
+      {notInserted ? (
+        <NotInsertedModal setNotInserted={setNotInserted} />
+      ) : null}
+      {exists ? <ExistsModal setExists={setExists} /> : null}
     </>
   );
 }

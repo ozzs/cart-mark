@@ -186,6 +186,7 @@ function GroceryForm() {
               className="input-amount"
               placeholder="Enter amount..."
               name="amount"
+              pattern="[0-9]*\.?[0-9]*"
               value={inputs.amount}
               onChange={handleChange}
             />
@@ -225,7 +226,10 @@ function GroceryForm() {
         </div>
       </div>
       <div className="shopping-list-block">
-        <h3>Your shopping list</h3>
+        <h3 className="editable-shoppinglist-title">Your shopping list</h3>
+        {productList.length === 0 ? (
+          <div> Your list will show up here </div>
+        ) : null}
         {productList.map((product, index) =>
           editProdId === product.id ? (
             <EditProdRow
@@ -248,12 +252,14 @@ function GroceryForm() {
           )
         )}
       </div>
-      <div className="shop-button">
-        <button className="openModalBtn" onClick={() => setOpenModal(true)}>
-          {" "}
-          Close List{" "}
-        </button>
-      </div>
+      {productList.length > 0 ? (
+        <div className="shop-button">
+          <button className="openModalBtn" onClick={() => setOpenModal(true)}>
+            {" "}
+            Close List{" "}
+          </button>
+        </div>
+      ) : null}
 
       {openModal && <Modal closeModal={setOpenModal} closelist={closelist} />}
     </>

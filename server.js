@@ -72,25 +72,24 @@ app.get("/additem", (req, res) => {
 app.post("/additem", (req, res) => {
   console.log(req.body.product);
   db.get(
-    "SELECT 1 FROM PRODUCTS WHERE name = ?",
+    "SELECT name FROM PRODUCTS WHERE name = ? COLLATE NOCASE",
     [req.body.product],
     (err, check) => {
-      logIfError(err);
-      if (check === undefined) {
+      console.log("check:", check);
+      if (err) res.send({ status: "wrong" });
+      else if (check === undefined) {
         console.log("NO PRODUCT EXISTS!");
         db.run(
           "INSERT INTO PRODUCTS(name, department, units) VALUES (?, ?, ?)",
-          [req.body.product, req.body.department, req.body.units]
-        ),
+          [req.body.product, req.body.department, req.body.units],
           (err) => {
-            if (err) {
-              logIfError();
-            }
-          };
-        res.send({ inserted: true });
-      } else {
+            if (err) res.send({ status: "wrong" });
+            else res.send({ status: "inserted" });
+          }
+        );
+      } else if (req.body.product.toUpperCase() === check.name.toUpperCase()) {
         console.log("PRODUCT EXISTS!");
-        res.send({ inserted: false });
+        res.send({ status: "exists" });
       }
     }
   );

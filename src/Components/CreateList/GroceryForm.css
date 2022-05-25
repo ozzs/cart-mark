@@ -1,6 +1,6 @@
 .block {
   background-color: #e0e0e0;
-  padding: 0.5%;
+  padding: 0.5% 0 0.5% 0;
   width: 35%;
   margin: auto;
   border-radius: 0.5rem;
@@ -125,22 +125,51 @@ button {
   font-size: 1.4vh;
   text-align: left;
   margin: 0.8rem;
+  padding-left: 0.5%;
 }
 
 .shopping-list-block {
-  background-color: #e0e0e0;
-  padding: 0.5%;
-  width: 35%;
+  /* background-color: #e0e0e0; */
+  padding: 0.5% 0 0.5% 0;
+  width: 30%;
   margin: auto;
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
   text-align: center;
   word-wrap: break-word;
 }
 
+.editable-shoppinglist-title {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 4vh;
+}
+
+.editable-shoppinglist-title::before,
+.editable-shoppinglist-title::after {
+  content: "";
+  display: block;
+  height: 2px;
+  opacity: 0.5;
+  background-color: #b0b0b0;
+}
+
 .shop-button {
+  margin-top: 1rem;
   text-align: center;
+  opacity: 0;
+  animation: scale-button 0.5s 0.5s forwards;
+}
+
+@keyframes scale-button {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
 }
 
 .openModalBtn {

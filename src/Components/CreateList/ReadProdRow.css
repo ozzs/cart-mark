@@ -3,7 +3,7 @@
   flex-direction: row;
   align-items: center;
   background-color: #f5f5f5;
-  padding: 1%;
+  padding: 2%;
   margin: auto;
   margin-bottom: 10px;
   border-radius: 0.3rem;
@@ -71,7 +71,7 @@
 .output-comment {
   display: inline-block;
   position: relative;
-  width: 15%;
+  width: fit-content;
   text-align: left;
   color: rgb(252, 61, 61);
   font-size: 12px;
@@ -107,51 +107,10 @@
 }
 
 @media only screen and (max-width: 425px) {
-  .product-row-read {
-    width: 95%;
-    display: grid;
-    grid-template-areas:
-      "product product department department amount amount icons"
-      "comment comment comment comment comment comment icons";
-    padding: 0.5vh 0 0.5vh 1vh;
-  }
-
-  .output-product {
-    font-size: 3vw;
-    width: fit-content;
-    grid-area: product;
-    /* border: 1px solid black */
-  }
-
-  .output-department {
-    font-size: 2.5vw;
-    width: fit-content;
-    grid-area: department;
-    font-weight: bold;
-    color: rgb(120, 120, 120);
-    padding: 1% 0 1% 1%;
-    /* border: 1px solid black; */
-  }
-
-  .output-amount {
-    width: fit-content;
-    font-size: 2.7vw;
-    grid-area: amount;
-    /* border: 1px solid black; */
-  }
-
-  .output-comment {
-    width: 100%;
-    font-size: 2.7vw;
-    grid-area: comment;
-    /* border: 1px solid black; */
-  }
-
-  .icons {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 18px;
-    margin-right: 1.5vh;
+  .icons-read {
+    gap: 2vh;
+    width: 15%;
+    font-size: 20px;
     width: fit-content;
     /* border: 1px solid black; */
   }

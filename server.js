@@ -52,7 +52,7 @@ app.get("/createlist", (req, res) => {
 
 app.get("/showlists", (req, res) => {
   db.all(
-    "SELECT Date FROM SHOPPING_LISTS WHERE Status = 0",
+    "SELECT ID, Date FROM SHOPPING_LISTS WHERE Status = 0",
     [],
     (err, dates) => {
       logIfError(err);
@@ -61,6 +61,23 @@ app.get("/showlists", (req, res) => {
         console.log(date);
       });
       res.send(dates);
+    }
+  );
+});
+
+app.get("/showlists/get-list", (req, res) => {
+  console.log("getting: ", req.query.date);
+  db.all(
+    "SELECT SHOPPING_LISTS.ID, PRODUCTS.name, PRODUCTS.department, RELATIONAL.Amount, PRODUCTS.units, RELATIONAL.Comment \
+    FROM PRODUCTS \
+    INNER JOIN RELATIONAL ON PRODUCTS.ID = RELATIONAL.ProductID \
+    INNER JOIN SHOPPING_LISTS ON SHOPPING_LISTS.ID = RELATIONAL.ListID WHERE Status = 0 AND Date = ? ",
+    [req.query.date],
+    (err, list) => {
+      logIfError(err);
+
+      console.log("list:", list);
+      res.send(list);
     }
   );
 });

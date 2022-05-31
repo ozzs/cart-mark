@@ -22,9 +22,12 @@
 .date-title-display {
   width: 50%;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 1%;
   border-radius: 0.4rem;
   background-color: red;
   color: white;
+  user-select: none;
   /* border: 1px solid black; */
 }

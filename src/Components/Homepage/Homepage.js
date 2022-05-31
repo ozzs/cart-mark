@@ -11,6 +11,7 @@ function Homepage() {
       <ReactPlayer
         className="react-player"
         url={myVideo}
+        muted
         playing
         loop
         width="100%"

@@ -1,0 +1,37 @@
+.list-display-block {
+  margin: auto;
+  background-color: blanchedalmond;
+  border-radius: 0.5rem;
+  padding: 1%;
+  width: 50%;
+}
+
+.list-display-product-container {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.list-display-department-title {
+  text-align: left;
+  font-weight: bold;
+}
+
+.list-display-product-details {
+  text-align: left;
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.list-display-product-name {
+  display: inline-block;
+  /* width: 40%; */
+  /* border: 1px solid black; */
+}
+
+.list-display-product-amount {
+  display: inline-block;
+}
+
+.list-display-product-comment {
+  /* display: inline-block; */
+}

@@ -91,12 +91,11 @@ function AddItem() {
   return (
     <>
       <div className="add-item-block">
-        <h2>Add Item</h2>
+        <h2 className="add-item-title">Add Item</h2>
         <div className="add-item-explanation">
           {" "}
           Add new items to the catalog{" "}
         </div>
-        <hr className="divider" noshade="" />
         <form className="addItem-form" onSubmit={handleSubmit}>
           <span className="product-input-title"> Product </span>
           <input

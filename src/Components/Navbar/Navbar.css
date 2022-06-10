@@ -2,7 +2,7 @@ nav {
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: #e0e0e0;
+  background-color: #222831;
   height: 3rem;
   margin-bottom: 25px;
   display: flex;
@@ -18,7 +18,7 @@ body {
 
 .link {
   position: relative;
-  color: black;
+  color: #eeeeee;
   text-decoration: none;
   margin: 1rem;
   font-weight: bold;
@@ -28,19 +28,15 @@ body {
 }
 
 .link::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 0.175rem;
   left: 0;
   bottom: -0.5rem;
-  background-color: rgb(194, 90, 90);
+  background-color: #3f72af;
   transform: scale(0, 1);
   transition: 0.3s ease;
-}
-
-.link:hover {
-  color: dimgray;
 }
 
 .link:hover::after {
@@ -48,14 +44,14 @@ body {
 }
 
 .active {
-  color: rgb(194, 90, 90);
+  color: #3f72af;
   text-decoration: none;
   margin: 1rem;
   font-weight: bold;
 }
 
 .active:hover {
-  color: rgb(194, 90, 90);
+  color: #3f72af;
 }
 
 .active::after {
@@ -78,6 +74,7 @@ body {
 @media only screen and (max-width: 768px) {
   .nav-btn {
     visibility: visible;
+    color: #eeeeee;
   }
 
   .hidden-navbar {

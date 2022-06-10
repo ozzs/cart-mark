@@ -7,37 +7,32 @@ function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   return (
-    <header>
-      <nav
-        className={showNavbar ? "hidden-navbar" : ""}
-        onClick={() => setShowNavbar(!showNavbar)}
-      >
-        <NavLink to="/" className="link" activeclassname="active">
-          {" "}
-          Home
-        </NavLink>
-        <NavLink to="/additem" className="link" activeclassname="active">
-          {" "}
-          Add Item{" "}
-        </NavLink>
-        <NavLink to="/createlist" className="link" activeclassname="active">
-          {" "}
-          Create List{" "}
-        </NavLink>
-        <NavLink to="/shoppinglist" className="link" activeclassname="active">
-          {" "}
-          Go Shopping!{" "}
-        </NavLink>
-        <NavLink to="/showlists" className="link" activeclassname="active">
-          {" "}
-          Show Lists{" "}
-        </NavLink>
-        <FaBars
-          className="nav-btn"
-          onClick={() => setShowNavbar(!showNavbar)}
-        />
-      </nav>
-    </header>
+    <nav
+      className={showNavbar ? "hidden-navbar" : ""}
+      onClick={() => setShowNavbar(!showNavbar)}
+    >
+      <NavLink to="/" className="link" activeclassname="active">
+        {" "}
+        Home
+      </NavLink>
+      <NavLink to="/additem" className="link" activeclassname="active">
+        {" "}
+        Add Item{" "}
+      </NavLink>
+      <NavLink to="/createlist" className="link" activeclassname="active">
+        {" "}
+        Create List{" "}
+      </NavLink>
+      <NavLink to="/shoppinglist" className="link" activeclassname="active">
+        {" "}
+        Go Shopping!{" "}
+      </NavLink>
+      <NavLink to="/showlists" className="link" activeclassname="active">
+        {" "}
+        Show Lists{" "}
+      </NavLink>
+      <FaBars className="nav-btn" onClick={() => setShowNavbar(!showNavbar)} />
+    </nav>
   );
 }
 

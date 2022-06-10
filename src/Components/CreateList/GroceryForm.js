@@ -152,12 +152,11 @@ function GroceryForm() {
   return (
     <>
       <div className="block">
-        <h2> Create a new shopping list </h2>
+        <h2 className="create-list-title"> Create a new shopping list </h2>
         <div className="explanation">
           {" "}
           Add a new product to the shopping list{" "}
         </div>
-        <hr className="divider" noshade="" />
         <form
           className="grocery-form"
           onSubmit={handleSubmit}

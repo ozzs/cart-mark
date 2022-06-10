@@ -14,20 +14,24 @@
   /* border: 1px solid black; */
 }
 
-.date-list-block {
-  width: 50%;
-  /* border: 1px solid black; */
-}
+/* .date-list-block {
+  border: 1px solid black;
+} */
 
 .date-title-display {
-  width: 50%;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 25vw;
+  height: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1%;
   border-radius: 0.4rem;
-  background-color: red;
-  color: white;
+  background-color: #e0e0e0;
+  color: black;
   user-select: none;
+  cursor: pointer;
   /* border: 1px solid black; */
 }

@@ -6,8 +6,6 @@
 
 ![shopping-list-banner](https://github.com/ozzs/ShoppingList/blob/main/ShoppingListBanner.png)
 
-![homepage-gif](https://github.com/ozzs/ShoppingList/blob/main/Homepage-Gif.gif)
-
 ## What is this and who is it for 🤷‍♀️
 
 I created a React shopping list app designed to make everyone's shopping experience (from making the list to taking the latest product off the shelf) more convenient.

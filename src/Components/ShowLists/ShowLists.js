@@ -11,6 +11,8 @@ function ShowLists() {
   const [displayList, setDisplayList] = useState([]);
   const [displayListID, setDisplayListID] = useState([]);
 
+  const [loaderID, setLoaderID] = useState(-1);
+
   const fetchDates = async () => {
     const response = await axios.get("/showlists");
     setDates(response.data);
@@ -23,6 +25,7 @@ function ShowLists() {
     });
     setDisplayListID(response.data[0].ID);
     setDisplayList(response.data);
+    setLoaderID(-1);
   };
 
   useEffect(() => {
@@ -41,9 +44,13 @@ function ShowLists() {
           <div className="date-list-block" key={date.ID}>
             <div
               className="date-title-display"
-              onClick={() => fetchListByDate(date.Date)}
+              onClick={() => {
+                setLoaderID(date.ID);
+                fetchListByDate(date.Date);
+              }}
             >
               {date.Date}
+              {loaderID === date.ID ? <div className="loader"></div> : null}
             </div>
 
             <div className="list-by-date-display">

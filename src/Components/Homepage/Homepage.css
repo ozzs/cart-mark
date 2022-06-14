@@ -193,14 +193,19 @@ p {
 
   .icon {
     font-size: 4vw;
+    margin: 1vw 0 2vw 0;
   }
 
   .title {
     font-size: 3.5vw;
+    margin: 1vw 0 1vw 0;
   }
 
   .page-details {
     font-size: 2.5vw;
+    margin: 5vw 0 0 0;
+    text-align: justify;
+    letter-spacing: 0.5px;
   }
 
   .page-desc {

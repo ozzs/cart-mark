@@ -110,6 +110,13 @@
 
   .add-item-explanation {
     width: 90%;
+    font-size: 3vw;
+  }
+
+  .product-input-title,
+  .department-input-title,
+  .packeging-input-title {
+    font-size: 3vw;
   }
 
   .input-product {

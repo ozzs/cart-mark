@@ -2,8 +2,6 @@ import React from "react";
 import "./ListDisplay.css";
 
 function ListDisplay({ list }) {
-  console.log("list in ListDisplay:", list);
-
   const groupByDeparment = (shoppingList) => {
     const departmentMap = {};
 
@@ -25,12 +23,12 @@ function ListDisplay({ list }) {
         <div className="list-display-department" key={department}>
           <div className="list-display-department-title"> {department} </div>
           {departmentMap[department].map((item) => (
-            <ul className="list-display-products-list" key={item.name}>
+            <div className="list-display-products-list" key={item.name}>
               <div className="list-display-product-container">
-                <li className="list-display-product-details">
+                <div className="list-display-product-details">
                   <div className="list-display-product-name">
                     {" "}
-                    {item.name},{" "}
+                    {item.name}:&ensp;{" "}
                   </div>
                   <div className="list-display-product-amount">
                     {" "}
@@ -40,9 +38,9 @@ function ListDisplay({ list }) {
                     {" "}
                     {item.Comment}{" "}
                   </div>
-                </li>
+                </div>
               </div>
-            </ul>
+            </div>
           ))}
         </div>
       ))}

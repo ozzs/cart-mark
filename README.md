@@ -4,8 +4,9 @@
 
 <br />
 
-
-<div align="center">[Visit the Live Website](https://whale-app-7zt7i.ondigitalocean.app)</div>
+<h3 align="center">
+  <a href="https://whale-app-7zt7i.ondigitalocean.app/">Visit the live app</a>
+</h3>
 
 ![shopping-list-banner](https://github.com/ozzs/ShoppingList/blob/main/ShoppingListBanner.png)
 

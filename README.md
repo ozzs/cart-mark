@@ -4,7 +4,7 @@
 
 <br />
 
-<span align="center">[Visit the Live Website](https://whale-app-7zt7i.ondigitalocean.app)</span>
+<div align="center">[Visit the Live Website](https://whale-app-7zt7i.ondigitalocean.app)</div>
 ![shopping-list-banner](https://github.com/ozzs/ShoppingList/blob/main/ShoppingListBanner.png)
 
 ## What is this and who is it for 🤷‍♀️

@@ -2,7 +2,6 @@
 
 <div align="center"> Auto formatted with Prettier 🎗️ </div>
 
-<br />
 <h3 align="center">
   <a href="https://whale-app-7zt7i.ondigitalocean.app/">Visit the live app</a>
 </h3>

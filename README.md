@@ -1,4 +1,5 @@
 <h1 align="center"> Shopping List React App </h1>
+[Visit the Live Website](https://whale-app-7zt7i.ondigitalocean.app/)
 
 <div align="center"> Auto formatted with Prettier 🎗️ </div>
 

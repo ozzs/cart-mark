@@ -1,7 +1,5 @@
 <h1 align="center"> Shopping List React App </h1>
 
-<div align="center"> Auto formatted with Prettier 🎗️ </div>
-
 <h3 align="center">
   <a href="https://whale-app-7zt7i.ondigitalocean.app/">Visit the live app</a>
 </h3>

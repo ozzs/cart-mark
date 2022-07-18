@@ -1,10 +1,10 @@
 <h1 align="center"> Shopping List React App </h1>
-[Visit the Live Website](https://whale-app-7zt7i.ondigitalocean.app)
 
 <div align="center"> Auto formatted with Prettier 🎗️ </div>
 
 <br />
 
+[Visit the Live Website](https://whale-app-7zt7i.ondigitalocean.app)
 ![shopping-list-banner](https://github.com/ozzs/ShoppingList/blob/main/ShoppingListBanner.png)
 
 ## What is this and who is it for 🤷‍♀️

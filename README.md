@@ -18,8 +18,32 @@
   <img alt="SQLite" src="https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white" />
 </p>
 
-## What is this and who is it for 🤷‍♀️
+## Overview
 
-Cart Mark is designed to make everyone's shopping experience (from making the list to taking the latest product off the shelf) more convenient.
+**So what is this and who is it for?** 🤷‍♀️
 
-I used Node.js and the simple SQLite database.
+Have you ever felt tired of making a hasty shopping list? Scribble a few groceries on a note and then lose the note? Or maybe get a shopping list from your wife, but you don't understand what's in it or what you're supposed to bring? Wait, did she want almond milk or soy milk?
+
+**Cart Mark** is designed to make everyone's shopping experience (from making the list to taking the latest product off the shelf) more convenient.
+
+With Cart Mark, you can create such a shopping list, which will spare you from dealing with the majority of the problems mentioned earlier. The way the application is set up allows it to be used on both computers and mobile devices.
+
+You can create a shopping list from a product catalog that you create, which you can then edit and annotate. Once the list is created, you can mark precisely what has been taken from the shelf and what has not. At the end of your purchase, the list will be saved so you can revisit it later.
+
+And most importantly, you will no longer be confused with almond milk and soy milk!
+
+## Key Features
+* Simple & Easy to use
+* Make your own grocery catalog
+* An abstract and independent shopping experience
+* Open-Source code
+* Mobile friendly
+
+## Tech
+
+## Usage
+
+## Support
+The product is still in its initial stages, so we would really appreciate feedback and donations 😄
+
+And don't forget to star us — it motivates us a lot! ⭐

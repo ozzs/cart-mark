@@ -1,0 +1,271 @@
+.title-container {
+  background-color: #393e46;
+  width: 100%;
+  height: 10vw;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #222831;
+  border-top: 3px solid #222831;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scale-container 0.7s;
+  margin-top: 5rem;
+  user-select: none;
+}
+
+@keyframes scale-container {
+  from {
+    transform: scaleX(0%);
+  }
+  to {
+    transform: scaleX(100%);
+  }
+}
+
+.shopping-list-title {
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 3% 0 3%;
+  animation: scale-title 1s forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  color: #eeeeee;
+  text-shadow: 5px 5px 7px #000000;
+}
+
+@keyframes scale-title {
+  from {
+    transform: scale(0%);
+  }
+  to {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
+.shopping_cart_left {
+  width: 10%;
+  visibility: hidden;
+  animation: left-cart-effect 1.5s forwards;
+  animation-delay: 0.5s;
+  filter: drop-shadow(10px 5px 5px rgba(0, 0, 0, 0.35));
+}
+
+@keyframes left-cart-effect {
+  from {
+    transform: translateX(calc(-100vh));
+  }
+  to {
+    transform: translateX(0%);
+    visibility: visible;
+  }
+}
+
+.shopping_cart_right {
+  width: 10%;
+  visibility: hidden;
+  animation: right-cart-effect 1.5s forwards;
+  animation-delay: 0.5s;
+  filter: drop-shadow(10px 5px 5px rgba(0, 0, 0, 0.35));
+}
+
+@keyframes right-cart-effect {
+  from {
+    transform: translateX(calc(100vh)) scaleX(-1);
+  }
+  to {
+    transform: translateX(0%) scaleX(-1);
+    visibility: visible;
+  }
+}
+
+.department-title {
+  background-color: #e0e0e0;
+  height: 2vw;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 1.3vw;
+  font-weight: bold;
+  padding: 1rem;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.product-container {
+  user-select: none;
+}
+
+.product {
+  opacity: 0;
+}
+
+li {
+  animation-delay: 5s;
+}
+
+li div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-checked div {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.product-name {
+  display: inline-block;
+  width: 8%;
+  font-weight: bold;
+  font-size: 1vw;
+  white-space: nowrap;
+  /* border: 1px solid black; */
+}
+
+.product-amount {
+  display: inline-block;
+  width: 3%;
+  font-size: 1vw;
+  margin-left: 5%;
+  /* border: 1px solid black; */
+}
+
+.product-units {
+  display: inline-block;
+  width: 8%;
+  font-size: 1vw;
+  /* border: 1px solid black; */
+}
+
+.product-comment {
+  display: inline-block;
+  font-size: 0.7vw;
+  color: red;
+}
+
+.finish-shopping {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: fit-content;
+  margin: auto;
+  /* border: 1px solid black; */
+  margin-bottom: 10vh;
+  margin-top: 8vh;
+}
+
+.finish-button {
+  background-color: #3f72af;
+  border-radius: 0.5rem;
+  color: #eeeeee;
+  font-size: 0.9vw;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  animation: scale-button 1.5s forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+@keyframes scale-button {
+  from {
+    transform: scale(0%);
+  }
+  to {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
+.finish-button:hover {
+  background-color: #5e9de9;
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+
+.alert-no-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 30%;
+  height: 6vw;
+  font-size: 1.5vw;
+  border: 3px solid black;
+  border-radius: 5rem;
+  text-align: center;
+  background-color: #e0e0e0;
+  margin-top: 2.5%;
+}
+
+@media only screen and (max-width: 425px) {
+  .title-container {
+    width: 100%;
+    height: 20vw;
+    margin-bottom: 30px;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shopping-list-title {
+    font-size: 5vw;
+  }
+
+  .shopping_cart_left {
+    width: 20%;
+  }
+
+  .shopping_cart_right {
+    width: 20%;
+    transform: scaleX(-1);
+  }
+
+  .department-title {
+    font-size: 3.5vw;
+  }
+
+  .product-name {
+    font-size: 3vw;
+    width: 25%;
+  }
+
+  .product-amount {
+    font-size: 3vw;
+    width: 9%;
+  }
+
+  .product-units {
+    font-size: 3vw;
+    width: 20%;
+  }
+
+  .product-comment {
+    font-size: 2vw;
+  }
+
+  .finish-shopping {
+    width: 30%;
+  }
+
+  .finish-button {
+    font-size: 3.5vw;
+  }
+
+  .alert-no-list {
+    width: 60%;
+    height: 15vw;
+    font-size: 3vw;
+  }
+}

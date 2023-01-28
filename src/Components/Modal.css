@@ -1,0 +1,80 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.modalContainer {
+  width: 20%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2%;
+}
+
+.modalContainer .title {
+  font-size: 1.3vw;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modalContainer .footer {
+  display: flex;
+  justify-content: center;
+}
+
+.closeBtn {
+  width: 40%;
+  height: 5vh;
+  font-size: 1vw;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: rgb(194, 90, 90);
+  color: rgb(194, 90, 90);
+  border-radius: 0.5rem;
+}
+
+.closeBtn:hover {
+  background-color: rgb(235, 204, 204);
+  transition-duration: 0.4s;
+}
+
+.continue-shopping {
+  width: 40%;
+}
+
+.continueBtn {
+  width: 100%;
+  height: 5vh;
+  font-size: 1vw;
+  cursor: pointer;
+  background-color: transparent;
+  border-color: rgb(1, 134, 61);
+  border-radius: 0.5rem;
+  color: rgb(1, 134, 61);
+}
+
+.continueBtn:hover {
+  background-color: rgb(219, 250, 219);
+  transition-duration: 0.4s;
+}
+
+@media only screen and (max-width: 768px) {
+  .modalContainer {
+    width: 50%;
+  }
+
+  .modalContainer .title {
+    font-size: 4vw;
+  }
+
+  .modalContainer .footer button {
+    font-size: 3vw;
+  }
+}

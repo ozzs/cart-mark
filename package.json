@@ -3,21 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.0",
+    "@mui/material": "^5.5.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "aos": "^2.3.4",
     "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.2.1",
+    "react-collapsible": "^2.9.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-player": "^2.10.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
+    "react-select": "^5.2.2",
     "sqlite3": "^5.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
+    "devStart": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -28,6 +40,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "http://localhost:8080",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -39,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "prettier": "2.6.2"
   }
 }

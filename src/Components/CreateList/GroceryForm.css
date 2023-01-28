@@ -1,0 +1,247 @@
+.block {
+  background-color: #e0e0e0;
+  padding: 0.5% 0 0.5% 0;
+  width: 35%;
+  margin: auto;
+  border-radius: 0.5rem;
+  text-align: center;
+  word-wrap: break-word;
+  margin-top: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.create-list-title {
+  color: #222831;
+}
+
+.explanation {
+  width: 90%;
+  font-size: 0.75vw;
+  color: rgb(139, 139, 139);
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+
+.item-input-title,
+.amount-input-title,
+.comment-input-title {
+  text-align: left;
+  width: 90%;
+  display: flex;
+  margin: auto;
+  font-size: 0.75vw;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  color: #222831;
+}
+
+.products {
+  width: 90%;
+  text-align: left;
+  display: inline-block;
+  margin: 1%;
+  font-size: 0.85vw;
+  margin-bottom: 1rem;
+}
+
+.amount-elements {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 1rem;
+  margin-top: 1%;
+}
+
+.input-amount {
+  width: 30%;
+  height: 40px;
+  font-size: 0.85vw;
+  padding: 2px 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+}
+
+.input-amount:focus {
+  outline: none !important;
+  border: 2px solid #2684ff;
+}
+
+.show-units {
+  font-size: 1.7vh;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+  margin-left: 2%;
+}
+
+.input-comment {
+  width: 90%;
+  height: 40px;
+  font-size: 0.85vw;
+  padding: 2px 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #d9d9d9;
+  margin: 1%;
+  margin-bottom: 1.5rem;
+}
+
+.input-comment:focus {
+  outline: none !important;
+  border: 2px solid #2684ff;
+}
+
+button {
+  font-weight: bold;
+  font-size: large;
+  height: 40px;
+  width: 200px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.add-product-button {
+  width: 50%;
+  background-color: rgb(1, 134, 61);
+  border-radius: 6px;
+  border-color: transparent;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 0.9vw;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.add-product-button:hover {
+  background-color: rgb(1, 167, 76);
+  transform: scale(0.95);
+  transition-duration: 0.3s;
+}
+
+.notice {
+  font-size: 0.65vw;
+  text-align: left;
+  margin: 0.8rem;
+  padding-left: 0.5%;
+}
+
+.shopping-list-block {
+  /* background-color: #e0e0e0; */
+  padding: 0.5% 0 0.5% 0;
+  width: 30%;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.editable-shoppinglist-title {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-column-gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 4vh;
+}
+
+.editable-shoppinglist-title::before,
+.editable-shoppinglist-title::after {
+  content: "";
+  display: block;
+  height: 2px;
+  opacity: 0.5;
+  background-color: #b0b0b0;
+}
+
+.shop-button {
+  margin-top: 1rem;
+  text-align: center;
+  opacity: 0;
+  animation: scale-button 0.5s 0.5s forwards;
+}
+
+@keyframes scale-button {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+.openModalBtn {
+  background-color: #3f72af;
+  border-radius: 0.5rem;
+  color: #eeeeee;
+  font-size: 0.9vw;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.openModalBtn:hover {
+  background-color: #5e9de9;
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 768px) {
+  .block {
+    background-color: #e0e0e0;
+    width: 90%;
+    margin: auto;
+    margin-top: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+
+  .explanation {
+    width: 90%;
+    font-size: 3vw;
+  }
+
+  .item-input-title,
+  .amount-input-title,
+  .comment-input-title {
+    font-size: 3vw;
+  }
+
+  .products {
+    width: 90%;
+    height: 10vw;
+    font-size: 3.5vw;
+  }
+
+  .amount-elements {
+    width: 90%;
+  }
+
+  .input-amount {
+    width: 50%;
+    font-size: 3.5vw;
+  }
+
+  .input-comment {
+    width: 90%;
+    font-size: 3.5vw;
+  }
+
+  .add-product-button {
+    font-size: 4vw;
+  }
+
+  .notice {
+    font-size: 2.5vw;
+  }
+
+  .shopping-list-block {
+    width: 90%;
+  }
+
+  .openModalBtn {
+    font-size: 4vw;
+  }
+}

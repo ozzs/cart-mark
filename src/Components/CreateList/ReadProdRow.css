@@ -1,0 +1,119 @@
+.product-row-read {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 2%;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 0.3rem;
+  width: auto;
+  word-wrap: break-word;
+  transition: 0.2s;
+  animation: scale 0.5s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.product-dets-read {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.first-row-read {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.output-product {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 1%;
+  /* border: 1px solid black; */
+}
+
+.output-department {
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  text-align: left;
+  font-size: 12px;
+  padding: 1%;
+  font-weight: bold;
+  color: rgb(120, 120, 120);
+  /* border: 1px solid black; */
+}
+
+.output-amount {
+  position: relative;
+  width: fit-content;
+  text-align: left;
+  font-size: 12px;
+  padding: 1%;
+  /* border: 1px solid black; */
+}
+
+.output-comment {
+  display: inline-block;
+  position: relative;
+  width: fit-content;
+  text-align: left;
+  color: rgb(252, 61, 61);
+  font-size: 12px;
+  padding: 1%;
+  /* border: 1px solid black; */
+}
+
+.icons-read {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 13%;
+  cursor: pointer;
+  font-size: 25px;
+  margin-right: 1.5vh;
+  grid-area: icons;
+  /* border: 1px solid black; */
+}
+
+.edit-button:hover {
+  color: forestgreen;
+  transition-duration: 0.2s;
+}
+
+.delete-button:hover {
+  color: crimson;
+  transition-duration: 0.2s;
+}
+
+.shop-button {
+  text-align: center;
+}
+
+@media only screen and (max-width: 425px) {
+  .icons-read {
+    gap: 2vh;
+    width: 15%;
+    font-size: 20px;
+    width: fit-content;
+    /* border: 1px solid black; */
+  }
+}
